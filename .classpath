@@ -13,7 +13,8 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Claudio/Desktop/apache-freemarker-2.3.27-incubating-bin/freemarker.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Claudio/Desktop/mysql-connector-java-5.1.44/mysql-connector-java-5.1.44-bin.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/marco/Desktop/freemarker-2.3.27-incubating.jar"/>
+	<classpathentry kind="lib" path="C:/Users/marco/Desktop/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
