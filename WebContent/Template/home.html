@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GDS</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist\css\bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist\css\bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist\css\bootstrap-theme.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css">
+</head>
+<body>
+	<div class="container">
+	    <h1>Studio di Ingegneria Del Sole Germano</h1>      
+	    <p>Gestionale utilizzato per la semplificazione e l'organizzazione dei lavori</p>
+	    <div class="row">
+	    	<div class="col-md-3">
+	    		<img class="logo" src="img\logo.png">
+	    	</div>
+	    	<div class="col-md-3 ppp">
+					<a class="btn btn-default" href="#" role="button"><img class="link" src="img/cliente.png"></a>
+					<a class="btn btn-default" href="#" role="button"><img class="link" src="img/scadenziario.png"></a>
+					<a class="btn btn-default" href="#" role="button"><img class="link" src="img/audit.png"></a>
+			</div>
+	    </div>
+	</div>
+	<div class="container">
+		<div class="row clienti">
+		<div class="col-md-12">
+			<h3>CLIENTI</h3>
+		</div>
+		</div>
+		<div class="row">
+		<div class="col-md-12">
+			<table class="table table-striped">
+			<thead>
+			  <tr>
+			  	<th>#</th>
+			  	<th>Nome Azienda</th>
+			  	<th>Comune</th>
+			  	<th>Modifica</th>
+			  	<th>Elimina</th>
+			  </tr>
+			  </thead>
+			  <tbody>
+			  	<tr>
+			  		<td>${id}</td>
+			  		<td>${nome}</td>
+			  		<td>${comune}</td>
+			  		<td><a href="Modifica_Azienda?id=${Azienda.id}"><img class="icona" src="img/modifica.png"></a></td>
+			  		<td><a href="#"><img class="icona" src="img/elimina.png"></a></td>
+			  	</tr>
+			  </tbody>
+			</table>
+			<br><br>
+		<div class="row">
+		<div class="col-md-12">
+			<h3 class="clienti">RICERCA AZIENDA</h3>
+			<form>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Nome Azienda</label>
+			    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">Comune</label>
+			    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Comune">
+			  </div>
+			  <button type="submit" class="btn btn-default">CERCA</button>
+			</form>
+		</div>
+		</div>
+		</div>
+	</div> 
+</div>
+</body>
+</html>
