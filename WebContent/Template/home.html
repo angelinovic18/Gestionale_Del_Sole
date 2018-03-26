@@ -1,4 +1,26 @@
-<#include "headerhome.html">
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GDS</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap\css\bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap\css\bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap\css\bootstrap-theme.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap\css\bootstrap-theme.min.css">
+</head>
+<body>
+	<div class="container">
+	    <h1>Studio di Ingegneria Del Sole Germano</h1>      
+	    <p>Gestionale utilizzato per la semplificazione e l'organizzazione dei lavori</p>
+	    <div class="row">
+	    	<div class="col-md-3">
+	    		<img class="logo" src="img\logo.png">
+	    	</div>
+	    	<div class="col-md-3 ppp">
+					<a class="btn btn-default" href="#" role="button"><img class="link" src="img/cliente.png"></a>
+					<a class="btn btn-default" href="#" role="button"><img class="link" src="img/scadenziario.png"></a>
+					<a class="btn btn-default" href="#" role="button"><img class="link" src="img/audit.png"></a>
+			</div>
+	    </div>
 	
 		<div class="row clienti">
 		<div class="col-md-12">
@@ -24,7 +46,6 @@
 			  		<td>${comune}</td>
 			  		<td><a href="Modifica_Azienda?id=${Azienda.id}"><img class="icona" src="img/modifica.png"></a></td>
 			  		<td><a href="#"><img class="icona" src="img/elimina.png"></a></td>
-			  	</tr>
 			  </tbody>
 			</table>
 			<br><br>
@@ -41,11 +62,25 @@
 			    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Comune">
 			  </div>
 			  <button type="submit" class="btn btn-default">CERCA</button>
+			  <br><br><br><br>
 			</form>
 		</div>
 		</div>
 		</div>
-	</div> 
+	</div>
+</div>
+<div class="footer">
+	<div class="row">
+		<div class="col-md-6 margine">
+		  <p>STUDIO DI INGEGNERIA</p>
+		  <p>Via Petrarca, 56 - 64025 Pineto (TE)</p>
+		  <p>M. 348 3195045 E-mail: ing.delsole@hotmail.it</p>
+		</div>
+		<div class="col-md-6 margine">
+		  <p>&copy; All right reserved</p>
+		  <p>Powered by Angelini&Morè</p>
+		</div>
+	</div>
 </div>
 </body>
 </html>
