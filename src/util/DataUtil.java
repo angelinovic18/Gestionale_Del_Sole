@@ -48,24 +48,24 @@ public class DataUtil {
 		        return nome;  
 	}
 
-    public static int checkUser(String email,String pass) throws Exception 
+    public static int checkUser(String username,String pass) throws Exception 
      {
       int st = 0;
       try{
 
 	 Database.connect();
         if(!isNull(pass)){
-            pass=crypt(pass);
+            pass=pass;
         }
         
-         System.out.println(email);
+         System.out.println(username);
          System.out.println(st);
          System.out.println(pass);
            
-         String condition="email='"+email+"' AND password='"+pass+"'";
+         String condition="username='"+username+"' AND password='"+pass+"'";
          
           System.out.println(condition);
-         ResultSet rs =Database.selectRecord("users",condition);
+         ResultSet rs =Database.selectRecord("admin",condition);
        while(rs.next()){ 
            st=rs.getInt("id");
        }
