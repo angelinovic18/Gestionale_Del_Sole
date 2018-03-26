@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/gestionale">
+<Context antiJARLocking="true" path="/Gestionale_Del_Sole">
     <Resource 
-        name="gestionale" 
+        name="Gestionale_Del_Sole" 
         type="javax.sql.DataSource" 
         driverClassName="com.mysql.jdbc.Driver" 
         url="jdbc:mysql://localhost:3306/gestionale" 
