@@ -71,6 +71,15 @@ public class Database {
         // Esecuzione query
         return Database.executeQuery(query);
     }
+    
+    
+    
+    public static ResultSet selectRecord(String table) throws SQLException {
+        // Generazione query
+        String query = "SELECT * FROM " + table;
+        // Esecuzione query
+        return Database.executeQuery(query);
+    }
     /**
      * Select record con condizione e ordinamento
      * @param table         tabella da cui prelevare i dati

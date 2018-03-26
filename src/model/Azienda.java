@@ -35,6 +35,13 @@ public class Azienda {
 		this.note = note;
 	}
 	
+	public Azienda(int id, String nome, String comune){
+		this.id = id;
+		this.nome = nome;
+		this.comune = comune;
+		
+	}
+	
 	public int getId(){
 		return id;
 	}
