@@ -4,12 +4,14 @@ public class Admin {
 	
 	private int id;
 	private String nome;
-	private String cognome;
+	private String username;
+	private String password;
 	
 	public Admin(int id, String nome, String cognome){
 		this.id = id;
 		this.nome = nome;
-		this.cognome = cognome;
+		this.username = username;
+		this.password=password;
 	}
 	
 	public int getId(){
@@ -28,12 +30,20 @@ public class Admin {
 		this.nome = nome;
 	}
 	
-	public String getCognome(){
-		return cognome;
+	public String getUsername(){
+		return username;
 	}
 	
-	public void setCognome(String cognome){
-		this.cognome = cognome;
+	public void setUsername(String username){
+		this.username = username;
+	}
+	
+	public String getPassword(){
+		return password;
+	}
+	
+	public void setCognome(String password){
+		this.password = password;
 	}
 
 }
