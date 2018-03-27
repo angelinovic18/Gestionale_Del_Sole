@@ -41,9 +41,13 @@
 						  <div class="modal-content">
 						    <span class="close">&times;</span>
 						    <p>Sicuro di voler eliminare?</p>
-						    <p><button id="si" name="elimina" type="submit">SI</button>
-						    <button id="no">NO</button>
-						    </p>
+						    <form method="POST" action="Home">
+						    <p><button id="si" name="elimina" type="submit" value="si">SI</button>
+						    
+						    <input type="hidden" name="id" value="${Lista.id}">
+						    						    </p>
+						    </form>
+						    <button id="no" name="elimina" value="no">NO</button>
 						  </div>
 						
 						</div>
