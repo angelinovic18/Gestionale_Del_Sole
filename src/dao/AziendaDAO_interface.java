@@ -23,4 +23,6 @@ public interface AziendaDAO_interface {
 	public static List<Azienda> cerca(){
 		return null;
 	}
+	
+	
 }

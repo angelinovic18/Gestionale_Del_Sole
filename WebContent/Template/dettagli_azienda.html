@@ -11,58 +11,60 @@
     <div class="table-responsive panel">
       <table class="table">
              <tbody>
+             <#if azienda ??>
 				   <tr>
 					   <td class="testo"><i class="glyphicon glyphicon-user"></i> Ragione Sociale</td>
-			           <td>${nome}</td>
+			           <td>${azienda.nome}</td>
 			       </tr>
 				   <tr>
 					   <td class="testo"><i class="glyphicon glyphicon-home"></i> Comune</td>
-					   <td>${comune}</td>
+					   <td>${azienda.comune}</td>
 			       </tr>
 			       <tr>
 			           <td class="testo"><i class="glyphicon glyphicon-bookmark"></i> Legale Rappresentante</td>
-			           <td>${rappresentante}</td>
+			           <td>${azienda.rappresentante}</td>
 		           </tr>
 				   <tr>
 				       <td class="testo"><i class="glyphicon glyphicon-briefcase"></i> Sede Legale</td>
-			           <td>${sede_legale}</td>
+			           <td>${azienda.sede_legale}</td>
 			       </tr>
 			       <tr>
 				       <td class="testo"><i class="glyphicon glyphicon-briefcase"></i> Sede Operativa</td>
-		               <td>${sede_operativa}</td>
+		               <td>${azienda.sede_operativa}</td>
 			       </tr>
 				   <tr>
 				       <td class="testo"><i class="glyphicon glyphicon-list-alt"></i> Codice Fiscale</td>
-				       <td>${codice_fiscale}</td>
+				       <td>${azienda.codice_fiscale}</td>
 			       </tr>
 			       <tr>
 					   <td class="testo"><i class="glyphicon glyphicon-barcode"></i> P.IVA</td>
-				       <td>${iva}</td>
+				       <td>${azienda.iva}</td>
 				   </tr>
 				   <tr>
 			           <td class="testo"><i class="glyphicon glyphicon-envelope"></i> Indirizzo Mail</td>
-				       <td>${email}</td>
+				       <td>${azienda.email}</td>
 				   </tr>
 				   <tr>
 				       <td class="testo"><i class="glyphicon glyphicon-envelope"></i> Indirizzo PEC</td>
-			           <td>${pec}</td>
+			           <td>${azienda.pec}</td>
 			      </tr>
 		          <tr>
 		               <td class="testo"><i class="glyphicon glyphicon-phone"></i> Cellulare</td>
-			           <td>${cellulare}</td>
+			           <td>${azienda.cellulare}</td>
 			      </tr>
 		          <tr>
 			           <td class="testo"><i class="glyphicon glyphicon-phone-alt"></i> Telefono Fisso</td>
-		               <td>${telefono}</td>
+		               <td>${azienda.telefono}</td>
 				  </tr>
 		          <tr>
 			           <td class="testo"><i class="glyphicon glyphicon-stats"></i> Classificazione Ateco</td>
-		               <td>${ateco}</td>
+		               <td>${azienda.ateco}</td>
 				  </tr>
 			      <tr>
 				       <td class="testo"><i class="glyphicon glyphicon-pencil"></i> Eventuali Note</td>
-			           <td>${note}</td>
+			           <td>${azienda.note}</td>
 			      </tr>
+			      </#if>
 		        </tbody>
              </table>
                                                 
@@ -72,5 +74,6 @@
        </div>
 
 </div>
+<br><br><br>
 
 <#include "footer.html">
