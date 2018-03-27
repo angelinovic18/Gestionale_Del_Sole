@@ -28,12 +28,21 @@
     <servlet-name>Modifica</servlet-name>
     <url-pattern>/modifica</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>Dettagli</servlet-name>
     <servlet-class>Servlets.Dettagli</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Dettagli</servlet-name>
     <url-pattern>/dettagli</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>Aggiungi</servlet-name>
+    <servlet-class>Servlets.Aggiungi</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Aggiungi</servlet-name>
+    <url-pattern>/aggiungi_cliente</url-pattern>
   </servlet-mapping>
 </web-app>
