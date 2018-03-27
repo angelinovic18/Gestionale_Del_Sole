@@ -42,7 +42,7 @@
 						    <span class="close">&times;</span>
 						    <p>Sicuro di voler eliminare?</p>
 						    <form method="POST" action="Home">
-						    <p><button id="si" name="elimina" type="submit" value="si">SI</button>
+						    <p><button id="si" name="tasto" type="submit" value="si">SI</button>
 						    
 						    <input type="hidden" name="id" value="${Lista.id}">
 						    						    </p>
@@ -62,16 +62,16 @@
 		<div class="row">
 		<div class="col-md-12">
 			<h3 class="clienti">RICERCA AZIENDA</h3>
-			<form>
+			<form method="POST" action="Home">
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Nome Azienda</label>
-			    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome">
+			    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome" name="nomeaz">
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleInputPassword1">Comune</label>
-			    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Comune">
+			    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Comune" name="comune">
 			  </div>
-			  <button type="submit" class="btn btn-default">CERCA</button>
+			  <button type="submit" class="btn btn-default" name="tasto" value="cerca">CERCA</button>
 			  <br><br><br><br>
 			</form>
 		</div>
