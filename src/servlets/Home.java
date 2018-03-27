@@ -42,6 +42,7 @@ public class Home extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession s = SecurityLayer.checkSession(request);
+		data.clear();
 		data.put("lista", AziendaDAO.lista());
 
   		
@@ -71,7 +72,7 @@ public class Home extends HttpServlet {
 		String cercacom=request.getParameter("comune");
 		
 			data.put("lista", AziendaDAO.cerca(cercaaz, cercacom));
-			
+			data.put("titolo", 1);
 			 FreeMarker.process("home.html", data, response, getServletContext());
 			
 			}
