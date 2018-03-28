@@ -51,18 +51,19 @@ public class DataUtil {
     public static int checkUser(String username,String pass) throws Exception 
      {
       int st = 0;
+      String passw="";
       try{
 
 	 Database.connect();
         if(!isNull(pass)){
-            pass=pass;
+            passw=pass;
         }
         
          System.out.println(username);
          System.out.println(st);
          System.out.println(pass);
            
-         String condition="username='"+username+"' AND password='"+pass+"'";
+         String condition="username='"+username+"' AND password='"+passw+"'";
          
           System.out.println(condition);
          ResultSet rs =Database.selectRecord("admin",condition);

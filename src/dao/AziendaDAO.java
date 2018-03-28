@@ -69,8 +69,8 @@ public class AziendaDAO implements AziendaDAO_interface {
 		return azi;
 	}
 	
-	public static void cancella(int id, String decisione){
-		if(decisione.equals("si")){
+	public static void cancella(int id){
+		
 		try {
 			Database.connect();
 			Database.deleteRecord("azienda", "id = " + id);
@@ -82,7 +82,7 @@ public class AziendaDAO implements AziendaDAO_interface {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		}
+		
 	}
 	
 	public static List<Azienda> cerca(String cercaaz, String cercacom){

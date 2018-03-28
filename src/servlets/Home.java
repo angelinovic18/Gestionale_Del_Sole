@@ -55,14 +55,15 @@ public class Home extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String dec=request.getParameter("elimina");
+		
 		String premuto=request.getParameter("tasto");
 		
 		
 		
 		if(premuto.equals("si")){
 			int id=Integer.parseInt(request.getParameter("id"));
-			AziendaDAO.cancella(id, dec);
+			System.out.println(id + "idddddddddddd");
+			AziendaDAO.cancella(id);
 			doGet(request, response);
 			}
 		

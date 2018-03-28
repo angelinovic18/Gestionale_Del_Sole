@@ -6854,13 +6854,13 @@ body {
 }
 
 /* Modal Content */
-.modal-content {
+/*.modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 10px;
    
-    width: 20%;
-}
+   
+}*/
 
 /* The Close Button */
 .close {
