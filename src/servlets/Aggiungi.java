@@ -45,6 +45,9 @@ public class Aggiungi extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession s = SecurityLayer.checkSession(request);
+		String scelta=request.getParameter("inserisci");
+		
+		if(scelta.equals("yes")){
 		Map<String,Object> agg=new HashMap<String,Object>();
 		
 		agg.put("nome", request.getParameter("nome"));
@@ -70,7 +73,7 @@ public class Aggiungi extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		}
 		response.sendRedirect("Home");
 	}
 
