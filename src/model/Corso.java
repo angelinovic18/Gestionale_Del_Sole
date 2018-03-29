@@ -11,6 +11,13 @@ public class Corso {
 		this.durata=durata;
 	}
 	
+	public Corso(int id, String nome){
+		this.id=id;
+		this.nome=nome;
+		
+	}
+	
+	
 	public void setId (int id) {
 		this.id=id;
 	}

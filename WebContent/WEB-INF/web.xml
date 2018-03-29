@@ -36,8 +36,7 @@
     <servlet-name>Dettagli</servlet-name>
     <url-pattern>/dettagli</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <servlet-name>Aggiungi</servlet-name>
     <servlet-class>Servlets.Aggiungi</servlet-class>
   </servlet>
@@ -45,4 +44,15 @@
     <servlet-name>Aggiungi</servlet-name>
     <url-pattern>/aggiungi_cliente</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Formazione</servlet-name>
+    <servlet-class>Servlets.Formazione</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Formazione</servlet-name>
+    <url-pattern>/formazione</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>

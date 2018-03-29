@@ -14,17 +14,20 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="clickable" data-toggle="collapse" id="row1" data-target=".row1">
+    <#if corsi ??>
+    <#list corsi as Corsi>
+        <tr class="clickable" data-toggle="collapse" id="row${Corsi.id}" data-target=".row${Corsi.id}">
             <td><i class="glyphicon glyphicon-plus"></i></td>
-            <td><b>PRIMO SOCCORSO</b></td>
+            <td><b>${Corsi.nome}</b></td>
         </tr>
-        <tr class="collapse row1">
+        <tr class="collapse row${Corsi.id}">
             <td><b>Corsista</b></td>
             <td>Angelini Marco</td>
           	<td>20/05/2017</td>  
             <td>Modifica</td>
         </tr>
-        
+        </#list>
+        </#if>
     </tbody>
 </table>
 

@@ -5,9 +5,9 @@ public class Acc {
 	private int id;
 	private int data_inizio;
 	private int id_corsista;
-	private int id_azienda_corso;
+	private int id_corso;
 	
-	public Acc(int id, int data_inizio, int id_corsista, int id_azienda_corso){
+	public Acc(int id, int data_inizio, int id_corsista, int id_corso){
 		this.id = id;
 		this.data_inizio = data_inizio;
 	}
@@ -37,10 +37,10 @@ public class Acc {
 	}
 	
 	public int getId_azienda_corso(){
-		return id_azienda_corso;
+		return id_corso;
 	}
 	
-	public void setId_azienda_corso(int id_azienda_corso){
-		this.id_azienda_corso = id_azienda_corso;
+	public void setId_azienda_corso(int id_corso){
+		this.id_corso = id_corso;
 	}
 }
