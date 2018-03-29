@@ -54,6 +54,7 @@ HttpSession s = SecurityLayer.checkSession(request);
 		String decisione=request.getParameter("decisione");
 		if(decisione.equals("salva")){
 		int id=Integer.parseInt(request.getParameter("id"));
+		String numero=request.getParameter("numero");
 		String nome=request.getParameter("nome");
 		System.out.println(nome + "nomeeeeeeee");
 		String comune=request.getParameter("comune");
@@ -72,6 +73,10 @@ HttpSession s = SecurityLayer.checkSession(request);
 		
 		
 		Map<String,Object> agg=new HashMap<String,Object>();
+		if(numero!=""){
+			agg.put("numero", numero);
+		}
+		
 		if(nome!=""){
 			agg.put("nome", nome);
 		}

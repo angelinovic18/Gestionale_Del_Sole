@@ -19,10 +19,11 @@ public class AziendaDAO implements AziendaDAO_interface {
 			ResultSet listaaz=Database.selectRecord("azienda");
 			while(listaaz.next()){
 				int id=listaaz.getInt("id");
+				String numero=listaaz.getString("numero");
 				String nome=listaaz.getString("nome");
 				String comune=listaaz.getString("comune");
 				
-				Azienda c=new Azienda(id,nome,comune);
+				Azienda c=new Azienda(id,numero, nome,comune);
 				aziende.add(c);
 			}
 			Database.close();
@@ -42,6 +43,7 @@ public class AziendaDAO implements AziendaDAO_interface {
 			ResultSet az=Database.selectRecord("azienda","id=" + id);
 			while(az.next()){
 				
+				String numero=az.getString("numero");
 				String nome=az.getString("nome");
 				System.out.println(nome + "nomeeeeeeee");
 				String comune=az.getString("comune");
@@ -57,7 +59,7 @@ public class AziendaDAO implements AziendaDAO_interface {
 				String ateco=az.getString("ateco");
 				String note=az.getString("note");
 				
-				azi=new Azienda(id,nome,comune,rappresentante,sedel,sedeo,codicef,iva,email,pec,cellulare,telefono,ateco,note);
+				azi=new Azienda(id,numero,nome,comune,rappresentante,sedel,sedeo,codicef,iva,email,pec,cellulare,telefono,ateco,note);
 				
 			}
 			Database.close();

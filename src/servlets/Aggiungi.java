@@ -50,8 +50,8 @@ public class Aggiungi extends HttpServlet {
 		if(scelta.equals("yes")){
 		Map<String,Object> agg=new HashMap<String,Object>();
 		
+		agg.put("numero", request.getParameter("numero"));
 		agg.put("nome", request.getParameter("nome"));
-		
 		agg.put("comune", request.getParameter("comune"));
 		agg.put("rappresentante", request.getParameter("rappresentante"));
 		agg.put("sede_legale", request.getParameter("sedel"));

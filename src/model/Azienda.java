@@ -4,6 +4,7 @@ package model;
 public class Azienda {
 
 	private int id;
+	private String numero;
 	private String nome;
 	private String comune;
 	private String rappresentante;
@@ -18,8 +19,9 @@ public class Azienda {
 	private String ateco;
 	private String note;
 	
-	public Azienda(int id, String nome, String comune, String rappresentante, String sede_legale, String sede_operativa, String codice_fiscale, String iva, String email, String pec, String cellulare, String telefono, String ateco, String note){
+	public Azienda(int id,String numero, String nome, String comune, String rappresentante, String sede_legale, String sede_operativa, String codice_fiscale, String iva, String email, String pec, String cellulare, String telefono, String ateco, String note){
 		this.id = id;
+		this.numero = numero;
 		this.nome = nome;
 		this.comune = comune;
 		this.rappresentante = rappresentante;
@@ -35,8 +37,9 @@ public class Azienda {
 		this.note = note;
 	}
 	
-	public Azienda(int id, String nome, String comune){
+	public Azienda(int id,String numero, String nome, String comune){
 		this.id = id;
+		this.numero = numero;
 		this.nome = nome;
 		this.comune = comune;
 		
@@ -48,6 +51,14 @@ public class Azienda {
 	
 	public void setId(int id){
 		this.id = id;
+	}
+	
+	public String getNumero(){
+		return numero;
+	}
+	
+	public void setNumero(String numero){
+		this.numero = numero;
 	}
 	
 	public String getNome(){

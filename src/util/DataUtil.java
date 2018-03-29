@@ -207,11 +207,11 @@ public class DataUtil {
 
                 String nome = record.getString("nome");
                 String comune = record.getString("comune");
-              
+                String numero = record.getString("numero");
                 int id = record.getInt("id");
              
 
-                Azienda k = new Azienda(id,nome,comune);
+                Azienda k = new Azienda(id,numero,nome,comune);
                 result.add(k);
             }
             Database.close();
@@ -243,11 +243,11 @@ public class DataUtil {
 
                 String nome = record.getString("nome");
                 String comune = record.getString("comune");
-                
+                String numero = record.getString("numero");
                 int id = record.getInt("id");
                
 
-                Azienda k = new Azienda(id,nome,comune);
+                Azienda k = new Azienda(id,numero,nome,comune);
                 result.add(k);
             }
             Database.close();
@@ -277,11 +277,11 @@ public class DataUtil {
 
                 String nome = record.getString("nome");
                 String comune = record.getString("comune");
-                
+                String numero = record.getString("numero");
                 int id = record.getInt("id");
                
 
-                Azienda k = new Azienda(id,nome,comune);
+                Azienda k = new Azienda(id,numero,nome,comune);
                 result.add(k);
             }
             Database.close();
