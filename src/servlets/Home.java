@@ -72,7 +72,12 @@ public class Home extends HttpServlet {
 		String cercaaz=request.getParameter("nomeaz");
 		String cercacom=request.getParameter("comune");
 		
-			data.put("lista", AziendaDAO.cerca(cercaaz, cercacom));
+			try {
+				data.put("lista", AziendaDAO.cerca(cercaaz, cercacom));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			data.put("titolo", 1);
 			 FreeMarker.process("home.html", data, response, getServletContext());
 			

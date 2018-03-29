@@ -5,11 +5,15 @@ package util;
 
 
 import model.Utente;
+import model.Azienda;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.util.Objects.isNull;
 import javax.naming.NamingException;
 /**
@@ -185,6 +189,109 @@ public class DataUtil {
     public static boolean decrypt(String string_crypted, String to_check){
         if(to_check == null || string_crypted == null) return false;
         return string_crypted.equals(crypt(to_check));
+    }
+    
+    public static List<Azienda> search(String inputa, String inputc) throws Exception {
+
+        List<Azienda> result = new ArrayList<Azienda>();
+
+        Database.connect();
+        //System.out.println(input);
+
+        try {
+            String condition = " nome LIKE '%" + inputa + "%' OR comune LIKE '%" + inputc + "%'";
+            //System.out.println(condition);
+
+            ResultSet record = Database.selectRecord("azienda", condition);
+            while (record.next()) {
+
+                String nome = record.getString("nome");
+                String comune = record.getString("comune");
+              
+                int id = record.getInt("id");
+             
+
+                Azienda k = new Azienda(id,nome,comune);
+                result.add(k);
+            }
+            Database.close();
+
+        } catch (SQLException ex) {
+            // handle any errors
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+        return result;
+    }
+    
+    
+    
+    public static List<Azienda> searchaz(String input) throws Exception {
+
+        List<Azienda> result = new ArrayList<Azienda>();
+
+        Database.connect();
+        //System.out.println(input);
+
+        try {
+            String condition = " nome LIKE '%" + input + "%'";
+            //System.out.println(condition);
+
+            ResultSet record = Database.selectRecord("azienda", condition);
+            while (record.next()) {
+
+                String nome = record.getString("nome");
+                String comune = record.getString("comune");
+                
+                int id = record.getInt("id");
+               
+
+                Azienda k = new Azienda(id,nome,comune);
+                result.add(k);
+            }
+            Database.close();
+        } catch (SQLException ex) {
+            // handle any errors
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+        return result;
+    }
+    
+    
+    public static List<Azienda> searchcom(String input) throws Exception {
+
+        List<Azienda> result = new ArrayList<Azienda>();
+
+        Database.connect();
+        //System.out.println(input);
+
+        try {
+            String condition = " comune LIKE '%" + input + "%'";
+            //System.out.println(condition);
+
+            ResultSet record = Database.selectRecord("azienda", condition);
+            while (record.next()) {
+
+                String nome = record.getString("nome");
+                String comune = record.getString("comune");
+                
+                int id = record.getInt("id");
+               
+
+                Azienda k = new Azienda(id,nome,comune);
+                result.add(k);
+            }
+            Database.close();
+        } catch (SQLException ex) {
+            // handle any errors
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+        return result;
     }
     
 }

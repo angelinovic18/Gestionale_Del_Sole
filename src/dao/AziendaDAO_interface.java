@@ -22,7 +22,7 @@ public interface AziendaDAO_interface {
 	
 	
 	
-	public static List<Azienda> cerca(){
+	public static List<Azienda> cerca(String cercaaz, String cercacom){
 		return null;
 	}
 	
