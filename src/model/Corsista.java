@@ -4,6 +4,7 @@ public class Corsista {
 	private int id;
 	private String nome;
 	private String cognome;
+	private int idcorso;
 	
 	public Corsista(int id, String nome, String cognome){
 		this.id=id;
@@ -11,6 +12,15 @@ public class Corsista {
 		this.cognome=cognome;
 	}
 	
+	public Corsista(int id, String nome, String cognome, int idcorso){
+		this.id=id;
+		this.nome=nome;
+		this.cognome=cognome;
+		this.idcorso=idcorso;
+	}
+	
+	
+
 	public void setId (int id) {
 		this.id=id;
 	}
@@ -33,5 +43,13 @@ public class Corsista {
 
 	public String getCognome() {
 		return cognome;
+	}
+	
+	public void setCorso (int idcorso) {
+		this.idcorso=idcorso;
+	}
+
+	public int getCorso() {
+		return idcorso;
 	}
 }

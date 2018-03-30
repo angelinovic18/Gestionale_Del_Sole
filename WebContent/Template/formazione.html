@@ -21,12 +21,18 @@
             <td><i class="glyphicon glyphicon-plus"></i></td>
             <td><b>${Corsi.nome}</b></td>
         </tr>
+        <#if corsisti ??>
+        <#list corsisti as Corsisti>
+        <#if Corsisti.idcorso == Corsi.id>
         <tr class="collapse row${Corsi.id}">
             <td><b>Corsista</b></td>
-            <td>Angelini Marco</td>
+            <td>${Corsisti.nome} ${Corsisti.cognome}</td>
           	<td>20/05/2017</td>  
             <td>Modifica</td>
         </tr>
+        </#if>
+        </#list>
+        </#if>
         </#list>
         </#if>
     </tbody>
