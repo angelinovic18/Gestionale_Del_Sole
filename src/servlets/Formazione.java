@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.CorsistiDAO;
 import dao.CorsoDAO;
 import model.Corsista;
 import model.Corso;
@@ -45,47 +46,15 @@ public class Formazione extends HttpServlet {
 		HttpSession s = SecurityLayer.checkSession(request);
 		int ida=(int) s.getAttribute("id");
 		System.out.println(ida + "id azienda");
-		Corsista b=null;
-		Corso c=null;
-		List<Corso> listac=new ArrayList<Corso>();
-		List<Corsista> listaco=new ArrayList<Corsista>();
-		try {
-			Database.connect();
-			ResultSet corsi=Database.selectRecord("corso");
-			ResultSet corsistic=Database.selectRecord("corsista,azienda,acc,corso","azienda.id=" + ida + " AND corsista.idazienda=azienda.id AND acc.id_corsista=corsista.id AND acc.idcorso=corso.id");
-			while(corsi.next()){
-				
-				int id=corsi.getInt("id");
-				String nome=corsi.getString("nome");
-				System.out.println(nome +"seeeeeee");
-				c=new Corso(id,nome);
-				listac.add(c);
-			}
-				
-					
-					while(corsistic.next()){
-						int idcc=corsistic.getInt("corsista.id");
-						System.out.println(idcc + "idddddddd");
-						String nomec=corsistic.getString("corsista.nome");
-						System.out.println(nomec + "nomeeeeeeee");
-						String cognome=corsistic.getString("corsista.cognome");
-						int idcorso=corsistic.getInt("idcorso");
-						System.out.println(idcorso + "idcorsoooo");
-						b=new Corsista(idcc,nomec,cognome,idcorso);
-						listaco.add(b);
-								
-					
-				}
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
+			try {
+			data.put("corsi", CorsoDAO.corsi());
+			data.put("corsisti", CorsistiDAO.corsisti(ida));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		data.put("corsi", listac);
-		data.put("corsisti", listaco);
+		
 		FreeMarker.process("formazione.html", data, response, getServletContext());
 	}
 
@@ -94,7 +63,8 @@ public class Formazione extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		HttpSession s = SecurityLayer.checkSession(request);
+		String scelta=request.getParameter("scelta");
 	}
 
 }

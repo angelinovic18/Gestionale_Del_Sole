@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import model.Corsista;
 import model.Corso;
 import util.Database;
 
@@ -24,11 +24,14 @@ public class CorsoDAO {
 				c=new Corso(id,nome);
 				listac.add(c);
 			}
+			Database.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return listac;
 	}
+	
+	
 	
 }
