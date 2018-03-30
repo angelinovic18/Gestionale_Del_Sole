@@ -5,8 +5,8 @@
 			<h3>AREA FORMAZIONE</h3>
 		</div>
 		</div>
-		<div class="row spazio_fondo">
-		<div class="col-md-12">
+		<div class="row">
+		<div class="col-md-12 spazio_fondo2">
 	  	  <table class="table table-responsive table-hover">
   <thead>
         <tr>
@@ -38,6 +38,47 @@
     </tbody>
 </table>
 </div>
+
+<div class="container spazio_fondo">
+<div class="row col-md-6">
+<form>
+<h3>AGGIUNGI CORSISTA</h3>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Nome</label>
+    <input name="nomecorsista" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Claudio">
+  </div>
+  <div class="form-group">
+  <label for="exampleFormControlInput1">Cognome</label>
+    <input name="cognomecorsista" type="email" class="form-control" id="exampleFormControlInput1" placeholder="More'">
+   </div> 
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Scegli il Corso</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+    <#if corsi ??>
+    <#list corsi as Corsi>
+      <option>${Corsi.nome}</option>
+        </#list>
+        </#if>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-default" name="scelta" value="corsista">Aggiungi Corsista</button>
+  </form>
+</div>
+
+<div class="col-md-6">
+<form>
+<h3>AGGIUNGI CORSO</h3>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Nome Corso</label>
+    <input name="nomecorso" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nome del corso">
+  </div>
+<button type="submit" class="btn btn-default" name="scelta" value="corso">Aggiungi Corso</button>
+</form>
+</div>
+</div>
+
+
+
 </div>
 </div>
 
