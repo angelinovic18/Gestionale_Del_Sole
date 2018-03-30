@@ -65,6 +65,50 @@ public class Formazione extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession s = SecurityLayer.checkSession(request);
 		String scelta=request.getParameter("scelta");
+		Map<String,Object> agg=new HashMap<String,Object>();
+		Map<String,Object> agg2=new HashMap<String,Object>();
+		if(scelta.equals("corso")){
+			String nomecorso=request.getParameter("nomecorso");
+			int durata=Integer.parseInt(request.getParameter("durata"));
+			agg.put("nome", nomecorso);
+			agg.put("durata", durata);
+			try {
+				Database.connect();
+				Database.insertRecord("corso", agg);
+				Database.close();
+			}
+			catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(scelta.equals("corsista")){
+				int ida=(int) s.getAttribute("id");
+				String nomecorsista=request.getParameter("nomecorsista");
+				String cognomecorsista=request.getParameter("cognomecorsista");
+				agg2.put("nome", nomecorsista);
+				agg2.put("cognome", cognomecorsista);
+				
+				
+				try {
+					Database.connect();
+					Database.insertRecord("corsista", agg2);
+					Database.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+			
+			
+			
 	}
 
+}
+		response.sendRedirect("Formazione");
+}
+	
 }
