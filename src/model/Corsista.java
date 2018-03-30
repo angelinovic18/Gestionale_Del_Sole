@@ -45,11 +45,11 @@ public class Corsista {
 		return cognome;
 	}
 	
-	public void setCorso (int idcorso) {
+	public void setIdCorso (int idcorso) {
 		this.idcorso=idcorso;
 	}
 
-	public int getCorso() {
+	public int getIdCorso() {
 		return idcorso;
 	}
 }

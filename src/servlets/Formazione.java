@@ -52,7 +52,7 @@ public class Formazione extends HttpServlet {
 		try {
 			Database.connect();
 			ResultSet corsi=Database.selectRecord("corso");
-			ResultSet corsisti=Database.selectRecord("corsista,azienda","corsista.idazienda=" + ida);
+			ResultSet corsistic=Database.selectRecord("corsista,azienda,acc,corso","azienda.id=" + ida + " AND corsista.idazienda=azienda.id AND acc.id_corsista=corsista.id AND acc.idcorso=corso.id");
 			while(corsi.next()){
 				
 				int id=corsi.getInt("id");
@@ -60,21 +60,23 @@ public class Formazione extends HttpServlet {
 				System.out.println(nome +"seeeeeee");
 				c=new Corso(id,nome);
 				listac.add(c);
+			}
 				
-				while(corsisti.next()){
-					int idd=corsisti.getInt("id");
-					ResultSet corsistic=Database.selectRecord("corsista,acc,corso","corsista.id=" + idd + " AND acc.id_corsista=corsista.id AND acc.idcorso=" + id);
+					
 					while(corsistic.next()){
 						int idcc=corsistic.getInt("corsista.id");
+						System.out.println(idcc + "idddddddd");
 						String nomec=corsistic.getString("corsista.nome");
+						System.out.println(nomec + "nomeeeeeeee");
 						String cognome=corsistic.getString("corsista.cognome");
 						int idcorso=corsistic.getInt("idcorso");
+						System.out.println(idcorso + "idcorsoooo");
 						b=new Corsista(idcc,nomec,cognome,idcorso);
 						listaco.add(b);
 								
-					}
+					
 				}
-			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -23,7 +23,7 @@
         </tr>
         <#if corsisti ??>
         <#list corsisti as Corsisti>
-        <#if Corsisti.idcorso == Corsi.id>
+        <#if Corsisti.getIdCorso() == Corsi.id>
         <tr class="collapse row${Corsi.id}">
             <td><b>Corsista</b></td>
             <td>${Corsisti.nome} ${Corsisti.cognome}</td>
