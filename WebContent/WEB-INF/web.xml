@@ -44,7 +44,6 @@
     <servlet-name>Aggiungi</servlet-name>
     <url-pattern>/aggiungi_cliente</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>Formazione</servlet-name>
     <servlet-class>Servlets.Formazione</servlet-class>
@@ -53,6 +52,4 @@
     <servlet-name>Formazione</servlet-name>
     <url-pattern>/formazione</url-pattern>
   </servlet-mapping>
-  
-  
 </web-app>
