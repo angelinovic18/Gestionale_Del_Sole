@@ -65,8 +65,11 @@ public class Formazione extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession s = SecurityLayer.checkSession(request);
 		String scelta=request.getParameter("scelta");
+		System.out.println(scelta + " Cosa scegli?");
 		Map<String,Object> agg=new HashMap<String,Object>();
 		Map<String,Object> agg2=new HashMap<String,Object>();
+		Map<String,Object> agg3=new HashMap<String,Object>();
+		int id=0;
 		if(scelta.equals("corso")){
 			String nomecorso=request.getParameter("nomecorso");
 			int durata=Integer.parseInt(request.getParameter("durata"));
@@ -80,18 +83,32 @@ public class Formazione extends HttpServlet {
 			catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}}
 			if(scelta.equals("corsista")){
 				int ida=(int) s.getAttribute("id");
 				String nomecorsista=request.getParameter("nomecorsista");
+				System.out.println(nomecorsista + " nome corsista aggiunto");
 				String cognomecorsista=request.getParameter("cognomecorsista");
+				System.out.println(nomecorsista + " nome corsista aggiunto");
+				int idcorso=Integer.parseInt(request.getParameter("idcorso"));
+				String data=request.getParameter("data");
 				agg2.put("nome", nomecorsista);
 				agg2.put("cognome", cognomecorsista);
-				
+				agg2.put("idazienda", ida);
 				
 				try {
 					Database.connect();
 					Database.insertRecord("corsista", agg2);
+					Database.selectRecord("corsista");
+					ResultSet a =Database.selectUltimoId();
+					while(a.next()){
+						id=a.getInt("id");
+						System.out.println(id + "ultimo id inserito");
+					}
+					agg3.put("id_corsista", id);
+					agg3.put("idcorso", idcorso);
+					agg3.put("data_inizio", data);
+					Database.insertRecord("acc", agg3);
 					Database.close();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -106,9 +123,8 @@ public class Formazione extends HttpServlet {
 			
 			
 	}
-
+			response.sendRedirect("Formazione");
 }
-		response.sendRedirect("Formazione");
+		
 }
 	
-}

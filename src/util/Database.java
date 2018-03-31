@@ -80,6 +80,14 @@ public class Database {
         // Esecuzione query
         return Database.executeQuery(query);
     }
+    
+    
+    public static ResultSet selectUltimoId() throws SQLException {
+        // Generazione query
+        String query = "SELECT LAST_INSERT_ID() AS id";
+        // Esecuzione query
+        return Database.executeQuery(query);
+    }
     /**
      * Select record con condizione e ordinamento
      * @param table         tabella da cui prelevare i dati

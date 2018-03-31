@@ -52,12 +52,16 @@
   <label for="exampleFormControlInput1">Cognome</label>
     <input name="cognomecorsista" type="text" class="form-control" id="exampleFormControlInput1" placeholder="More'">
    </div> 
+   <div class="form-group">
+  <label for="exampleFormControlInput1">Data</label>
+    <input name="data" type="date" class="form-control" id="exampleFormControlInput1">
+   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Scegli il Corso</label>
-    <select class="form-control" id="exampleFormControlSelect1">
+    <select class="form-control" id="exampleFormControlSelect1" name="idcorso">
     <#if corsi ??>
     <#list corsi as Corsi>
-      <option>${Corsi.nome}</option>
+      <option  value="${Corsi.id}">${Corsi.nome}</option>
         </#list>
         </#if>
     </select>
@@ -75,7 +79,7 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Durata</label>
-    <input name="nomecorso" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Durata">
+    <input name="durata" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Durata">
   </div>
 <button type="submit" class="btn btn-default" name="scelta" value="corso">Aggiungi Corso</button>
 </form>
