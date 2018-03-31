@@ -6901,3 +6901,16 @@ body {
 .spazio_fondo2{
 	margin-bottom: 70px;
 }
+
+.upper {
+	text-transform: uppercase;
+}
+
+a.btn.btn-default.nero {
+	background-image: linear-gradient(to bottom,black 0,black 100%);
+	background-color: black;
+}
+
+.red {
+	color: red;
+}

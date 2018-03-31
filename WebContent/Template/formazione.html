@@ -19,7 +19,7 @@
     <#list corsi as Corsi>
         <tr class="clickable" data-toggle="collapse" id="row${Corsi.id}" data-target=".row${Corsi.id}">
             <td><i class="glyphicon glyphicon-plus"></i></td>
-            <td><b>${Corsi.nome}</b></td>
+            <td class="upper"><b>${Corsi.nome}</b></td>
         </tr>
         <#if corsisti ??>
         <#list corsisti as Corsisti>
@@ -28,7 +28,42 @@
             <td><b>Corsista</b></td>
             <td>${Corsisti.nome} ${Corsisti.cognome}</td>
           	<td>20/05/2017</td>  
-            <td>Modifica</td>
+            
+            			  		<!-- Trigger/Open The Modal -->
+			  		<td>
+			  		<button type="button"  data-toggle="modal" data-target="#exampleModal-${Corsisti.id}">
+			  		<img src="Template/img/elimina.png" class="icona">
+			  		</button>
+			  		
+									  	
+<!-- Modal -->
+<form method="POST" action="Home">
+<div class="modal fade" id="exampleModal-${Corsisti.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ELIMINA</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Sei sicuro di voler eliminare questo elemento?
+      </div>
+      <div class="modal-footer">
+      
+        <button type="submit" name="tasto" value="si" class="btn btn-secondary">SI</button>
+         <input type="hidden" name="id" value="${Corsisti.id}">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">NO</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+					
+			  		</td>
+            
+            
         </tr>
         </#if>
         </#list>
@@ -83,6 +118,22 @@
   </div>
 <button type="submit" class="btn btn-default" name="scelta" value="corso">Aggiungi Corso</button>
 </form>
+
+<form method="POST" action="Formazione">
+<h3 class="red">ELIMINA CORSO</h3>
+    <div class="form-group">
+    <label for="exampleFormControlSelect1">Scegli il Corso</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="idcorso">
+    <#if corsi ??>
+    <#list corsi as Corsi>
+      <option  value="${Corsi.id}">${Corsi.nome}</option>
+        </#list>
+        </#if>
+    </select>
+  </div>
+<button type="submit" class="btn btn-default" name="scelta" value="elimina">Elimina Corso</button>
+</form>
+
 </div>
 </div>
 <br><br><br>
