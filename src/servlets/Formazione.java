@@ -140,6 +140,18 @@ public class Formazione extends HttpServlet {
 			
 			
 	}
+			if(scelta.equals("elimina")){
+				int idcorso=Integer.parseInt(request.getParameter("idcorso"));
+				try {
+					Database.connect();
+					Database.deleteRecord("acc","idcorso=" + idcorso);
+					Database.deleteRecord("corso","id=" + idcorso);
+					Database.close();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 			response.sendRedirect("Formazione");
 }
 		

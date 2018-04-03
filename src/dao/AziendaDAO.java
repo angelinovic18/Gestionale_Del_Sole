@@ -49,13 +49,12 @@ public class AziendaDAO implements AziendaDAO_interface {
 				String auditc=listaaz1.getString("auditc");
 				System.out.println(auditc + " dataaaaaaa");
 				String auditt=listaaz1.getString("auditt");
-<<<<<<< HEAD
+
 				System.out.println(auditt + " dataaaaaaa");
-=======
-				
+		
 				if(auditc!="" && auditt!="") {
 				
->>>>>>> 9f2fec279844b89c2d4b4600ad5723ce09ddf0e7
+
 				Azienda z=new Azienda(id,numero, nome,comune,auditc,auditt);
 				aziende1.add(z);
 			} }
