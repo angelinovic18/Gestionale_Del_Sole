@@ -52,4 +52,20 @@
     <servlet-name>Formazione</servlet-name>
     <url-pattern>/formazione</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Scadenzario</servlet-name>
+    <servlet-class>Servlets.Scadenzario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Scadenzario</servlet-name>
+    <url-pattern>/scadenzario</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Audit</servlet-name>
+    <servlet-class>Servlets.Audit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Audit</servlet-name>
+    <url-pattern>/audit</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -104,6 +104,20 @@ public class Database {
     }
     
     /**
+     * Select record con ordinamento
+     * @param table         tabella da cui prelevare i dati
+     * @param order         ordinamento dei dati
+     * @return              dati prelevati
+     * @throws java.sql.SQLException
+     */
+    public static ResultSet selectRecordCond(String table, String order) throws SQLException{
+        // Generazione query
+        String query = "SELECT * FROM " + table + " ORDER BY " + order;
+        // Esecuzione query
+        return Database.executeQuery(query);
+    }
+    
+    /**
      * Select record con join tra due tabelle
      * @param table_1           nome della prima tabella
      * @param table_2           nome della seconda tabella
