@@ -53,7 +53,75 @@ public class Audit extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+String premuto=request.getParameter("tasto");
+		
+		
+		
+		if(premuto.equals("si")){
+			int id=Integer.parseInt(request.getParameter("id"));
+			System.out.println(id + "idddddddddddd");
+			AziendaDAO.cancella(id);
+			doGet(request, response);
+			}
+		
+		if(premuto.equals("confermaaudc")){
+			int id=Integer.parseInt(request.getParameter("id"));
+			String datascadaudc="";
+			Map<String,Object> a=new HashMap<String,Object>();
+			try {
+				Database.connect();
+				ResultSet azienda=Database.selectRecord("azienda","id=" +id);
+				while(azienda.next()){
+					String dataauc=azienda.getString("auditc");
+					int anno=Integer.parseInt(dataauc.substring(0,4));
+					anno=anno+1;
+					int mese=Integer.parseInt(dataauc.substring(5,7));
+					System.out.println(mese + "meseeeeeee");
+					int giorno=Integer.parseInt(dataauc.substring(8,10));
+					System.out.println(giorno + "giornooooo");
+					
+					datascadaudc=anno+"-"+mese+"-"+giorno;
+					a.put("auditc", datascadaudc);
+					Database.updateRecord("azienda",a,"id=" + id);
+				}
+				
+				Database.close();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		
+		if(premuto.equals("confermaaudt")){
+			int id=Integer.parseInt(request.getParameter("id"));
+			String datascadaudt="";
+			Map<String,Object> a=new HashMap<String,Object>();
+			try {
+				Database.connect();
+				ResultSet azienda=Database.selectRecord("azienda","id=" +id);
+				while(azienda.next()){
+					String dataaut=azienda.getString("auditt");
+					int anno=Integer.parseInt(dataaut.substring(0,4));
+					anno=anno+1;
+					int mese=Integer.parseInt(dataaut.substring(5,7));
+					System.out.println(mese + "meseeeeeee");
+					int giorno=Integer.parseInt(dataaut.substring(8,10));
+					System.out.println(giorno + "giornooooo");
+					
+					datascadaudt=anno+"-"+mese+"-"+giorno;
+					a.put("auditt", datascadaudt);
+					Database.updateRecord("azienda",a,"id=" + id);
+				}
+				
+				Database.close();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
 	}
 
 }
