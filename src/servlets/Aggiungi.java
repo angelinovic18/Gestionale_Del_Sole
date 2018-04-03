@@ -49,7 +49,16 @@ public class Aggiungi extends HttpServlet {
 		
 		if(scelta.equals("yes")){
 		Map<String,Object> agg=new HashMap<String,Object>();
-		
+		String auditc=request.getParameter("auditc");
+		String auditt=request.getParameter("auditt");
+		/*if(auditc.equals(""))
+		{
+			auditc=null;
+		}
+		if(auditt.equals(""))
+		{
+			auditt=null;
+		}*/
 		agg.put("numero", request.getParameter("numero"));
 		agg.put("nome", request.getParameter("nome"));
 		agg.put("comune", request.getParameter("comune"));
@@ -63,8 +72,8 @@ public class Aggiungi extends HttpServlet {
 		agg.put("cellulare", request.getParameter("cellulare"));
 		agg.put("telefono", request.getParameter("telefono"));
 		agg.put("ateco", request.getParameter("ateco"));
-		agg.put("auditc", request.getParameter("auditc"));
-		agg.put("auditt", request.getParameter("auditt"));
+		agg.put("auditc", auditc);
+		agg.put("auditt", auditt);
 		agg.put("note", request.getParameter("note"));
 		
 		try {
