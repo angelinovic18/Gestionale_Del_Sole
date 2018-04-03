@@ -12,6 +12,10 @@ public interface AziendaDAO_interface {
 		return null;
 	}
 	
+	public static List<Azienda> lista1(){
+		return null;
+	}
+	
 	public static Azienda specifica(int id){
 		return null;
 	}
