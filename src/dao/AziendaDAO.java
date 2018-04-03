@@ -49,9 +49,11 @@ public class AziendaDAO implements AziendaDAO_interface {
 				String auditc=listaaz1.getString("auditc");
 				String auditt=listaaz1.getString("auditt");
 				
+				if(auditc!="" && auditt!="") {
+				
 				Azienda z=new Azienda(id,numero, nome,comune,auditc,auditt);
 				aziende1.add(z);
-			}
+			} }
 			Database.close();
 			
 		} catch (Exception e) {
