@@ -47,8 +47,9 @@ public class AziendaDAO implements AziendaDAO_interface {
 				String nome=listaaz1.getString("nome");
 				String comune=listaaz1.getString("comune");
 				String auditc=listaaz1.getString("auditc");
+				System.out.println(auditc + " dataaaaaaa");
 				String auditt=listaaz1.getString("auditt");
-				
+				System.out.println(auditt + " dataaaaaaa");
 				Azienda z=new Azienda(id,numero, nome,comune,auditc,auditt);
 				aziende1.add(z);
 			}
