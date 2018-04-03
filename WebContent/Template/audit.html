@@ -45,17 +45,44 @@
 			  		<td>${Lista.comune}</td>
 			  		<td>${Lista.auditc}</td>
 			  		<td>${Lista.auditt}</td>
-			  		<td>V</td>
-			  		<td><a href="Modifica?id=${Lista.id}"><img class="icona" src="Template/img/modifica.png"></a></td>
-			  		<!-- Trigger/Open The Modal -->
-			  		<td><!-- <img id="myBtn" src="Template/img/elimina.png" class="icona modal"></img> -->
+			  		<td>
+			  		<button type="button"  data-toggle="modal" data-target="#example1Modal-${Lista.id}">
+			  		<img src="Template/img/aggiorna.png" class="icona">
+			  		</button>
+			  		<!-- Modal -->
+<form method="POST" action="Audit">
+<div class="modal fade" id="example1Modal-${Lista.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ELIMINA</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Sei sicuro di voler confermare questo elemento?
+      </div>
+      <div class="modal-footer">
+      
+        <button type="submit" name="tasto" value="si" class="btn btn-secondary">SI</button>
+         <input type="hidden" name="id" value="${Lista.id}">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">NO</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+					
+			  		</td>
+			  		<td>
 			  		<button type="button"  data-toggle="modal" data-target="#exampleModal-${Lista.id}">
 			  		<img src="Template/img/elimina.png" class="icona">
 			  		</button>
 			  		
 									  	
 <!-- Modal -->
-<form method="POST" action="Home">
+<form method="POST" action="Audit">
 <div class="modal fade" id="exampleModal-${Lista.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
