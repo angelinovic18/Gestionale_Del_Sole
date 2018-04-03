@@ -24,9 +24,10 @@ public class CorsistiDAO {
 						String nomec=corsistic.getString("corsista.nome");
 						System.out.println(nomec + "nomeeeeeeee");
 						String cognome=corsistic.getString("corsista.cognome");
+						String datainizio=corsistic.getString("data_inizio");
 						int idcorso=corsistic.getInt("idcorso");
 						System.out.println(idcorso + "idcorsoooo");
-						b=new Corsista(idcc,nomec,cognome,idcorso);
+						b=new Corsista(idcc,nomec,cognome,idcorso,datainizio);
 						listaco.add(b);
 								
 					

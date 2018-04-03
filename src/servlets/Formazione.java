@@ -91,13 +91,29 @@ public class Formazione extends HttpServlet {
 				String cognomecorsista=request.getParameter("cognomecorsista");
 				System.out.println(nomecorsista + " nome corsista aggiunto");
 				int idcorso=Integer.parseInt(request.getParameter("idcorso"));
+				
 				String data=request.getParameter("data");
 				agg2.put("nome", nomecorsista);
 				agg2.put("cognome", cognomecorsista);
 				agg2.put("idazienda", ida);
 				
 				try {
+					int durata=0;
+					String datascad="";
 					Database.connect();
+					ResultSet corsos=Database.selectRecord("corso","id=" + idcorso);
+					while(corsos.next()){
+					 durata=corsos.getInt("durata");
+					}
+					int anno=Integer.parseInt(data.substring(0,4));
+					System.out.println(anno + "annooooooo");
+					int mese=Integer.parseInt(data.substring(5,7));
+					System.out.println(mese + "meseeeeeee");
+					int giorno=Integer.parseInt(data.substring(8,10));
+					System.out.println(giorno + "giornooooo");
+					anno=anno+durata;
+					datascad=anno+"-"+mese+"-"+giorno;
+					System.out.println(datascad +" datascadenzaaaaa");
 					Database.insertRecord("corsista", agg2);
 					Database.selectRecord("corsista");
 					ResultSet a =Database.selectUltimoId();
@@ -108,6 +124,7 @@ public class Formazione extends HttpServlet {
 					agg3.put("id_corsista", id);
 					agg3.put("idcorso", idcorso);
 					agg3.put("data_inizio", data);
+					agg3.put("datascad", datascad);
 					Database.insertRecord("acc", agg3);
 					Database.close();
 				} catch (SQLException e) {

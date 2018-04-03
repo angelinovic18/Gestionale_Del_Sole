@@ -5,6 +5,7 @@ public class Corsista {
 	private String nome;
 	private String cognome;
 	private int idcorso;
+	private String data_inizio;
 	
 	public Corsista(int id, String nome, String cognome){
 		this.id=id;
@@ -17,6 +18,14 @@ public class Corsista {
 		this.nome=nome;
 		this.cognome=cognome;
 		this.idcorso=idcorso;
+	}
+	
+	public Corsista(int id, String nome, String cognome, int idcorso, String datainizio){
+		this.id=id;
+		this.nome=nome;
+		this.cognome=cognome;
+		this.idcorso=idcorso;
+		this.data_inizio=datainizio;
 	}
 	
 	
@@ -43,6 +52,14 @@ public class Corsista {
 
 	public String getCognome() {
 		return cognome;
+	}
+	
+	public void setDataIni (String datainizio) {
+		this.data_inizio=datainizio;
+	}
+
+	public String getDataIni() {
+		return data_inizio;
 	}
 	
 	public void setIdCorso (int idcorso) {
