@@ -68,6 +68,8 @@ HttpSession s = SecurityLayer.checkSession(request);
 		String cellulare=request.getParameter("cellulare");
 		String telefono=request.getParameter("telefono");
 		String ateco=request.getParameter("ateco");
+		String auditc=request.getParameter("auditc");
+		String auditt=request.getParameter("auditt");
 		String note=request.getParameter("note");
 		
 		
@@ -123,6 +125,14 @@ HttpSession s = SecurityLayer.checkSession(request);
 		
 		if(ateco!=""){
 			agg.put("ateco", ateco);
+		}
+		
+		if(auditc!=""){
+			agg.put("auditc", auditc);
+		}
+		
+		if(auditt!=""){
+			agg.put("auditt", auditt);
 		}
 		
 		if(note!=""){

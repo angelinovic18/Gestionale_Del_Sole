@@ -17,9 +17,11 @@ public class Azienda {
 	private String cellulare;
 	private String telefono;
 	private String ateco;
+	private String auditc;
+	private String auditt;
 	private String note;
 	
-	public Azienda(int id,String numero, String nome, String comune, String rappresentante, String sede_legale, String sede_operativa, String codice_fiscale, String iva, String email, String pec, String cellulare, String telefono, String ateco, String note){
+	public Azienda(int id,String numero, String nome, String comune, String rappresentante, String sede_legale, String sede_operativa, String codice_fiscale, String iva, String email, String pec, String cellulare, String telefono, String ateco, String auditc, String auditt, String note){
 		this.id = id;
 		this.numero = numero;
 		this.nome = nome;
@@ -34,6 +36,8 @@ public class Azienda {
 		this.cellulare = cellulare;
 		this.telefono = telefono;
 		this.ateco = ateco;
+		this.auditc = auditc;
+		this.auditt = auditt;
 		this.note = note;
 	}
 	
@@ -155,6 +159,22 @@ public class Azienda {
 	
 	public void setAteco(String ateco){
 		this.ateco = ateco;
+	}
+	
+	public String getAuditc(){
+		return auditc;
+	}
+	
+	public void setAuditc(String auditc){
+		this.auditc = auditc;
+	}
+	
+	public String getAuditt(){
+		return auditt;
+	}
+	
+	public void setAuditt(String auditt){
+		this.auditt = auditt;
 	}
 	
 	public String getNote(){

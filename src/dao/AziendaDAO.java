@@ -57,9 +57,11 @@ public class AziendaDAO implements AziendaDAO_interface {
 				String cellulare=az.getString("cellulare");
 				String telefono=az.getString("telefono");
 				String ateco=az.getString("ateco");
+				String auditc=az.getString("auditc");
+				String auditt=az.getString("auditt");
 				String note=az.getString("note");
 				
-				azi=new Azienda(id,numero,nome,comune,rappresentante,sedel,sedeo,codicef,iva,email,pec,cellulare,telefono,ateco,note);
+				azi=new Azienda(id,numero,nome,comune,rappresentante,sedel,sedeo,codicef,iva,email,pec,cellulare,telefono,ateco,auditc,auditt,note);
 				
 			}
 			Database.close();

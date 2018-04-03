@@ -63,6 +63,8 @@ public class Aggiungi extends HttpServlet {
 		agg.put("cellulare", request.getParameter("cellulare"));
 		agg.put("telefono", request.getParameter("telefono"));
 		agg.put("ateco", request.getParameter("ateco"));
+		agg.put("auditc", request.getParameter("auditc"));
+		agg.put("auditt", request.getParameter("auditt"));
 		agg.put("note", request.getParameter("note"));
 		
 		try {
