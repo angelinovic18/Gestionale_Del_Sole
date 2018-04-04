@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.AziendaDAO;
 import dao.CorsistiDAO;
 import dao.CorsoDAO;
 import model.Corsista;
@@ -48,6 +49,7 @@ public class Formazione extends HttpServlet {
 		System.out.println(ida + "id azienda");
 		
 			try {
+				data.put("nomeaz", AziendaDAO.specifica(ida));
 			data.put("corsi", CorsoDAO.corsi());
 			data.put("corsisti", CorsistiDAO.corsisti(ida));
 		} catch (Exception e) {
