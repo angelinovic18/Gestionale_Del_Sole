@@ -152,4 +152,41 @@ public class AziendaDAO implements AziendaDAO_interface {
 	
 		return cercate;}
 	
+	
+	
+	public static List<Azienda> cercaaz(String cercaaz) throws Exception{
+		
+		
+		
+				return DataUtil.searchaz(cercaaz);
+				
+				
+			}
+	
+	public static List<Azienda> cercam(String mese) throws Exception{
+		List<Azienda> lis=new ArrayList<Azienda>();
+		
+		ResultSet listaz=Database.selectRecord("azienda");
+		while(listaz.next()){
+			String auditc=listaz.getString("auditc");
+			String meseaudc=auditc.substring(5,7);
+			if(meseaudc.equals(mese)){
+				int id=listaz.getInt("id");
+				
+            	
+                String nome = listaz.getString("nome");
+                String comune = listaz.getString("comune");
+                String numero = listaz.getString("numero");
+                
+                Azienda n=new Azienda(id,numero,nome,comune,auditc);
+              lis.add(n);
+			}
+			
+		}
+		
+		return lis;
+		
+		
+	}
+	
 }

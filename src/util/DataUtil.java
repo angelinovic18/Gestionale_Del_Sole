@@ -240,14 +240,16 @@ public class DataUtil {
 
             ResultSet record = Database.selectRecord("azienda", condition);
             while (record.next()) {
-
+            	
+            	String auditc=record.getString("auditc");
+            	String auditt=record.getString("auditt");
                 String nome = record.getString("nome");
                 String comune = record.getString("comune");
                 String numero = record.getString("numero");
                 int id = record.getInt("id");
                
 
-                Azienda k = new Azienda(id,numero,nome,comune);
+                Azienda k = new Azienda(id,numero,nome,comune,auditc,auditt);
                 result.add(k);
             }
             Database.close();
