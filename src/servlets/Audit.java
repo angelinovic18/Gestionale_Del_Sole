@@ -143,6 +143,30 @@ String premuto=request.getParameter("tasto");
 			
 			
 		}
+		
+		if(premuto.equals("cerca")){
+			String nomeaz=request.getParameter("nomeaz");
+			String mese=request.getParameter("mese");
+			if(nomeaz!=""){
+				try {
+					data.put("lista1", AziendaDAO.cercaaz(nomeaz));
+					FreeMarker.process("audit.html", data, response, getServletContext());
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			if(!mese.equals("00")){
+				try {
+					data.put("lista1", AziendaDAO.cercam(mese));
+					FreeMarker.process("audit.html", data, response, getServletContext());
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
 		doGet(request, response);
 	}
 

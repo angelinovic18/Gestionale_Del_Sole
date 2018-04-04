@@ -58,6 +58,16 @@ public class Azienda {
 		this.auditt = auditt;
 	}
 	
+	
+	public Azienda(int id,String numero, String nome, String comune, String auditc){
+		this.id = id;
+		this.numero = numero;
+		this.nome = nome;
+		this.comune = comune;
+		this.auditc = auditc;
+		
+	}
+	
 	public int getId(){
 		return id;
 	}
