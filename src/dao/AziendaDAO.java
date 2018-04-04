@@ -165,7 +165,7 @@ public class AziendaDAO implements AziendaDAO_interface {
 	
 	public static List<Azienda> cercam(String mese) throws Exception{
 		List<Azienda> lis=new ArrayList<Azienda>();
-		
+		Database.connect();
 		ResultSet listaz=Database.selectRecord("azienda");
 		while(listaz.next()){
 			String auditc=listaz.getString("auditc");
@@ -173,20 +173,45 @@ public class AziendaDAO implements AziendaDAO_interface {
 			if(meseaudc.equals(mese)){
 				int id=listaz.getInt("id");
 				
-            	
+            	String auditt=listaz.getString("auditt");
                 String nome = listaz.getString("nome");
                 String comune = listaz.getString("comune");
                 String numero = listaz.getString("numero");
                 
-                Azienda n=new Azienda(id,numero,nome,comune,auditc);
+                Azienda n=new Azienda(id,numero,nome,comune,auditc,auditt);
               lis.add(n);
 			}
 			
 		}
-		
+		Database.close();
 		return lis;
 		
 		
 	}
 	
+	public static List<Azienda> cercam1(String mese) throws Exception{
+		List<Azienda> lis=new ArrayList<Azienda>();
+		Database.connect();
+		ResultSet listaz=Database.selectRecord("azienda");
+		while(listaz.next()){
+			String auditt=listaz.getString("auditt");
+			String meseaudc=auditt.substring(5,7);
+			if(meseaudc.equals(mese)){
+				int id=listaz.getInt("id");
+				
+            	String auditc=listaz.getString("auditc");
+                String nome = listaz.getString("nome");
+                String comune = listaz.getString("comune");
+                String numero = listaz.getString("numero");
+                
+                Azienda n=new Azienda(id,numero,nome,comune,auditc,auditt);
+              lis.add(n);
+			}
+			
+		}
+		Database.close();
+		return lis;
+		
+		
+	}
 }

@@ -31,7 +31,7 @@
                     <th>Nome Azienda</th>
                     <th>Comune</th>
                     <th>Scadenza Audit Tecnico</th>
-                    <th>Commerciale</th>
+                    <th>Aggiorna</th>
                     <th>Elimina</th>
                 </tr>
             </thead>
@@ -66,7 +66,7 @@
 
        
 
-        <button type="submit" name="tasto" value="confermaaudc" class="btn btn-secondary">SI</button>
+        <button type="submit" name="tasto" value="confermaaudt" class="btn btn-secondary">SI</button>
          <input type="hidden" name="id" value="${Lista.id}">
         <button type="button" class="btn btn-primary" data-dismiss="modal">NO</button>
       </div>
@@ -123,7 +123,7 @@
         	<div class="row spazio_fondo">
 		<div class="col-md-12">
 			<h3 class="clienti">CERCA</h3>
-			<form method="POST" action="Home">
+			<form method="POST" action="Auditt">
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Nome Azienda</label>
 			    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome" name="nomeaz">
