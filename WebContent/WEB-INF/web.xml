@@ -68,5 +68,20 @@
     <servlet-name>Audit</servlet-name>
     <url-pattern>/audit</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <servlet-name>Auditc</servlet-name>
+    <servlet-class>Servlets.Auditc</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Auditc</servlet-name>
+    <url-pattern>/auditc</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Auditt</servlet-name>
+    <servlet-class>Servlets.Auditt</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Auditt</servlet-name>
+    <url-pattern>/auditt</url-pattern>
+  </servlet-mapping>
 </web-app>

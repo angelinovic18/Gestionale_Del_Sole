@@ -6759,9 +6759,8 @@ button.close {
 /* NOSTRI CSS */
 
 .logo {
-  width: 150px;
-  height: 180px;
-  margin-bottom: 50px;
+  width: 70px;
+  height: 100px;
 }
 
 .icona {
@@ -6776,6 +6775,7 @@ button.close {
 .link {
   width: 35px;
   height: 35px;
+  font-size: 25px;
 }
 
 .ppp{
@@ -6804,7 +6804,6 @@ overflow-x: hidden;
 .container {
   position: relative;
   margin: 0 auto;
-  padding-top: 64px;
   width: 94%;
   right: 0;
   top: 0;
