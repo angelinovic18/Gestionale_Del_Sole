@@ -95,6 +95,10 @@ public class Formazione extends HttpServlet {
 				int idcorso=Integer.parseInt(request.getParameter("idcorso"));
 				
 				String data=request.getParameter("data");
+				String gg=data.substring(8,10);
+				String mm=data.substring(5,7);
+				String aa=data.substring(0,4);
+				data=gg + "/" +mm+ "/" +aa;
 				agg2.put("nome", nomecorsista);
 				agg2.put("cognome", cognomecorsista);
 				agg2.put("idazienda", ida);
@@ -107,21 +111,21 @@ public class Formazione extends HttpServlet {
 					while(corsos.next()){
 					 durata=corsos.getInt("durata");
 					}
-					int anno=Integer.parseInt(data.substring(0,4));
+					int anno=Integer.parseInt(data.substring(6,10));
 					System.out.println(anno + "annooooooo");
-					int mese=Integer.parseInt(data.substring(5,7));
+					int mese=Integer.parseInt(data.substring(3,5));
 					System.out.println(mese + "meseeeeeee");
-					int giorno=Integer.parseInt(data.substring(8,10));
+					int giorno=Integer.parseInt(data.substring(0,2));
 					System.out.println(giorno + "giornooooo");
 					anno=anno+durata;
 					if(mese<10 && giorno>9){
-						datascad=anno+"-0"+mese+"-"+giorno;
+						datascad=giorno+"/0"+mese+"/"+anno;
 						}
 						if(giorno<10 && mese>9){
-							datascad=anno+"-"+mese+"-0"+giorno;
+							datascad="0"+giorno+"/"+mese+"/"+anno;
 							}
 						if(giorno<10 && mese<10){
-							datascad=anno+"-0"+mese+"-0"+giorno;
+							datascad="0"+giorno+"/0"+mese+"/"+anno;
 							}
 				
 					System.out.println(datascad +" datascadenzaaaaa");

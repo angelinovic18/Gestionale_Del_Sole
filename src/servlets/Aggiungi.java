@@ -51,6 +51,21 @@ public class Aggiungi extends HttpServlet {
 		Map<String,Object> agg=new HashMap<String,Object>();
 		String auditc=request.getParameter("auditc");
 		String auditt=request.getParameter("auditt");
+		String anno=auditc.substring(0,4);
+		System.out.println(anno + "annooooooo");
+		String mese=auditc.substring(5,7);
+		System.out.println(mese + "meseeeeeee");
+		String giorno=auditc.substring(8,10);
+		System.out.println(giorno + "giornooooo");
+	auditc=giorno+"/"+mese+"/"+anno;
+	
+	String annot=auditt.substring(0,4);
+	System.out.println(annot + "annooooooo");
+	String meset=auditt.substring(5,7);
+	System.out.println(meset + "meseeeeeee");
+	String giornot=auditt.substring(8,10);
+	System.out.println(giornot + "giornooooo");
+auditt=giornot+"/"+meset+"/"+annot;
 		/*if(auditc.equals(""))
 		{
 			auditc=null;

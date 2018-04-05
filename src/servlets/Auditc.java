@@ -73,21 +73,22 @@ String premuto=request.getParameter("tasto");
 				ResultSet azienda=Database.selectRecord("azienda","id=" +id);
 				while(azienda.next()){
 					String dataauc=azienda.getString("auditc");
-					int anno=Integer.parseInt(dataauc.substring(0,4));
-					anno=anno+1;
-					int mese=Integer.parseInt(dataauc.substring(5,7));
+					int anno=Integer.parseInt(dataauc.substring(6,10));
+					System.out.println(anno + "annooooooo");
+					int mese=Integer.parseInt(dataauc.substring(3,5));
 					System.out.println(mese + "meseeeeeee");
-					int giorno=Integer.parseInt(dataauc.substring(8,10));
+					int giorno=Integer.parseInt(dataauc.substring(0,2));
 					System.out.println(giorno + "giornooooo");
+					anno=anno+1;
 					if(mese<10 && giorno>9){
-					datascadaudc=anno+"-0"+mese+"-"+giorno;
-					}
-					if(giorno<10 && mese>9){
-						datascadaudc=anno+"-"+mese+"-0"+giorno;
+						datascadaudc=giorno+"/0"+mese+"/"+anno;
 						}
-					if(giorno<10 && mese<10){
-						datascadaudc=anno+"-0"+mese+"-0"+giorno;
-						}
+						if(giorno<10 && mese>9){
+							datascadaudc="0"+giorno+"/"+mese+"/"+anno;
+							}
+						if(giorno<10 && mese<10){
+							datascadaudc="0"+giorno+"/0"+mese+"/"+anno;
+							}
 					a.put("auditc", datascadaudc);
 					Database.updateRecord("azienda",a,"id=" + id);
 					

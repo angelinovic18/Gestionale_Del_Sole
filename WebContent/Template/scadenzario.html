@@ -50,8 +50,10 @@
 			  		<td>${Lista.getDataScad()}</td>
 			  		<#if Lista.getScaduto() == 1>
 		<td><img class="icona" alt="manca 1 mese" src="Template/img/rosso.png"></td>
-		<#else>
+		<#elseif Lista.getScaduto() == 0>
 		<td><img class="icona" alt="manca + di 1 mese" src="Template/img/verde.png"></td>
+		<#elseif Lista.getScaduto()== 2>
+		<td>SCADUTO</td>
 		</#if>
 		  		<td>
 					<button type="button"  data-toggle="modal" data-target="#example1Modal-${Lista.id}">

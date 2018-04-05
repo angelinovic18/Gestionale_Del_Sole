@@ -201,7 +201,7 @@ public class AziendaDAO implements AziendaDAO_interface {
 		ResultSet listaz=Database.selectRecord("azienda");
 		while(listaz.next()){
 			String auditc=listaz.getString("auditc");
-			String meseaudc=auditc.substring(5,7);
+			String meseaudc=auditc.substring(3,5);
 			if(meseaudc.equals(mese)){
 				int id=listaz.getInt("id");
 				
@@ -227,7 +227,7 @@ public class AziendaDAO implements AziendaDAO_interface {
 		ResultSet listaz=Database.selectRecord("azienda");
 		while(listaz.next()){
 			String auditt=listaz.getString("auditt");
-			String meseaudc=auditt.substring(5,7);
+			String meseaudc=auditt.substring(3,5);
 			if(meseaudc.equals(mese)){
 				int id=listaz.getInt("id");
 				

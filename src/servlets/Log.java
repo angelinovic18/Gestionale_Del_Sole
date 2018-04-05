@@ -61,6 +61,7 @@ public class Log extends HttpServlet {
 	          try {
 	        	  Database.connect();
 				userid=DataUtil.checkUser(username,pass);
+				System.out.println(userid + "userutente");
 				
 				s.setAttribute("userid", userid);
 				Database.close();
