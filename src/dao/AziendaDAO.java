@@ -143,6 +143,12 @@ public class AziendaDAO implements AziendaDAO_interface {
 		
 		try {
 			Database.connect();
+			ResultSet i=Database.selectRecord("corsista","corsista.idazienda=" + id);
+			while(i.next()){
+				int idc=i.getInt("id");
+				Database.deleteRecord("acc", "acc.id_corsista=" +idc);
+			}
+			Database.deleteRecord("corsista", "corsista.idazienda=" + id);
 			Database.deleteRecord("azienda", "id = " + id);
 			Database.close();
 		} catch (SQLException e) {
