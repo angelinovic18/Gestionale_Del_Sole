@@ -33,7 +33,8 @@
                     <th>Nome Corsista</th>
                     <th>Corso</th>
                     <th>Mese di Scadenza</th>
-                    <th>Corso Fatto</th>
+                    <th>Situazione</th>
+                    <th>Aggiorna</th>
                     <th>Elimina</th>
                 </tr>
             </thead>
@@ -48,20 +49,79 @@
 			  		<td>${Lista.getNomeCorso()}</td>
 			  		<td>${Lista.getDataScad()}</td>
 			  		<#if Lista.getScaduto() == 1>
-		<td>SCADUTO</td>
+		<td><img class="icona" alt="manca 1 mese" src="Template/img/rosso.png"></td>
 		<#else>
-		<td>NON SCADUTO</td>
+		<td><img class="icona" alt="manca + di 1 mese" src="Template/img/verde.png"></td>
 		</#if>
-			  		<td><a href="Modifica?id=${Lista.id}"><img class="icona" src="Template/img/modifica.png"></a></td>
-			  		<!-- Trigger/Open The Modal -->
-			  		<td><!-- <img id="myBtn" src="Template/img/elimina.png" class="icona modal"></img> -->
+		  		<td>
+					<button type="button"  data-toggle="modal" data-target="#example1Modal-${Lista.id}">
+				  		<img src="Template/img/aggiorna.png" class="icona">
+				  		</button>
+				  		<!-- Modal1 -->
+					<form method="POST" action="Scadenzario">
+					<div class="modal fade" id="example1Modal-${Lista.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title" id="exampleModalLabel">CONFERMARE</h5>
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					      </div>
+					      <div class="modal-body">
+					        Sei sicuro di voler confermare questo elemento?
+					      </div>
+					      <div class="modal-footer">
+					      
+					
+					       
+					
+					        <button type="submit" name="tasto" value="confermaaudc" class="btn btn-secondary">SI</button>
+					         <input type="hidden" name="id" value="${Lista.id}">
+					        <button type="button" class="btn btn-primary" data-dismiss="modal">NO</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					</form>
+					
+			  		</td>
+			  					  		<td>
 			  		<button type="button"  data-toggle="modal" data-target="#exampleModal-${Lista.id}">
 			  		<img src="Template/img/elimina.png" class="icona">
 			  		</button>
 			  		
 									  	
 <!-- Modal -->
-<form method="POST" action="Home">
+<form method="POST" action="Scadenzario">
+<div class="modal fade" id="exampleModal-${Lista.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ELIMINA</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Sei sicuro di voler eliminare questo elemento?
+      </div>
+      <div class="modal-footer">
+      
+        <button type="submit" name="tasto" value="si" class="btn btn-secondary">SI</button>
+         <input type="hidden" name="id" value="${Lista.id}">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">NO</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+					
+			  		</td>
+			  		
+									  	
+<!-- Modal -->
+<form method="POST" action="Scadenzario">
 <div class="modal fade" id="exampleModal-${Lista.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

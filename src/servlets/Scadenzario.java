@@ -67,6 +67,8 @@ public class Scadenzario extends HttpServlet {
                 System.out.println(mese + " mese scadenza");
                 if(mese-1==month){
                 	scaduto=1;
+                } else {
+                	scaduto=0;
                 }
                Azienda l=new Azienda(id,numero,nome,comune,ncors,cognome,nomcorso,datascad,scaduto); 
                g.add(l);
