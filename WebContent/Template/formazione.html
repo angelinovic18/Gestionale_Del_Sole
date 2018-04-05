@@ -81,15 +81,15 @@
 <h3>AGGIUNGI CORSISTA</h3>
   <div class="form-group">
     <label for="exampleFormControlInput1">Nome</label>
-    <input name="nomecorsista" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Claudio">
+    <input name="nomecorsista" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Claudio" required>
   </div>
   <div class="form-group">
   <label for="exampleFormControlInput1">Cognome</label>
-    <input name="cognomecorsista" type="text" class="form-control" id="exampleFormControlInput1" placeholder="More'">
+    <input name="cognomecorsista" type="text" class="form-control" id="exampleFormControlInput1" placeholder="More'" required>
    </div> 
    <div class="form-group">
   <label for="exampleFormControlInput1">Data</label>
-    <input name="data" type="date" class="form-control" id="exampleFormControlInput1">
+    <input name="data" type="date" class="form-control" id="exampleFormControlInput1" required>
    </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Scegli il Corso</label>
@@ -110,11 +110,11 @@
 <h3>AGGIUNGI CORSO</h3>
   <div class="form-group">
     <label for="exampleFormControlInput1">Nome Corso</label>
-    <input name="nomecorso" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome del corso">
+    <input name="nomecorso" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome del corso" required>
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Durata</label>
-    <input name="durata" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Durata">
+    <input name="durata" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Durata" required>
   </div>
 <button type="submit" class="btn btn-default" name="scelta" value="corso">Aggiungi Corso</button>
 </form>
@@ -124,6 +124,7 @@
     <div class="form-group">
     <label for="exampleFormControlSelect1">Scegli il Corso</label>
     <select class="form-control" id="exampleFormControlSelect1" name="idcorso">
+    <option  value="0">Nessun corso selezionato</option>
     <#if corsi ??>
     <#list corsi as Corsi>
       <option  value="${Corsi.id}">${Corsi.nome}</option>
