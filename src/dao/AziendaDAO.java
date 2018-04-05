@@ -68,6 +68,38 @@ public class AziendaDAO implements AziendaDAO_interface {
 		return aziende1;
 	}
 	
+	public static List<Azienda> lista2(){
+		List<Azienda> aziende2=new ArrayList<Azienda>();
+		try {
+			Database.connect();
+			ResultSet listaaz2=Database.selectRecordCond("azienda", "`azienda`.`auditt` ASC");
+			while(listaaz2.next()){
+				int id=listaaz2.getInt("id");
+				String numero=listaaz2.getString("numero");
+				String nome=listaaz2.getString("nome");
+				String comune=listaaz2.getString("comune");
+				String auditc=listaaz2.getString("auditc");
+				System.out.println(auditc + " dataaaaaaa");
+				String auditt=listaaz2.getString("auditt");
+
+				System.out.println(auditt + " dataaaaaaa");
+		
+				if(auditc!="" && auditt!="") {
+				
+
+				Azienda x=new Azienda(id,numero, nome,comune,auditc,auditt);
+				aziende2.add(x);
+			} }
+			Database.close();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return aziende2;
+	}
+	
 	public static Azienda specifica(int id){
 		Azienda azi=null;
 		try {

@@ -43,7 +43,7 @@ public class Auditt extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession s = SecurityLayer.checkSession(request);
 		data.clear();
-		data.put("lista1", AziendaDAO.lista1());
+		data.put("lista2", AziendaDAO.lista2());
 		
 		FreeMarker.process("auditt.html", data, response, getServletContext());
 	}
@@ -150,7 +150,7 @@ String premuto=request.getParameter("tasto");
 			System.out.println(mese+"fasaf");
 			if(nomeaz!=""){
 				try {
-					data.put("lista1", AziendaDAO.cercaaz(nomeaz));
+					data.put("lista2", AziendaDAO.cercaaz(nomeaz));
 					FreeMarker.process("auditt.html", data, response, getServletContext());
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -160,7 +160,7 @@ String premuto=request.getParameter("tasto");
 			
 			if(mese!="00"){
 				try {
-					data.put("lista1", AziendaDAO.cercam1(mese));
+					data.put("lista2", AziendaDAO.cercam1(mese));
 					FreeMarker.process("auditt.html", data, response, getServletContext());
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
