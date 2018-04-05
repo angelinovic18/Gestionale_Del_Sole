@@ -44,9 +44,14 @@
 			  		<td>${Lista.numero}</td>
 			  		<td><a href="Dettagli?id=${Lista.id}">${Lista.nome}</a></td>
 			  		<td>${Lista.comune}</td>
-			  		<td>Angelini Marco</td>
-			  		<td>Primo Soccorso</td>
-			  		<td>20/04/2018</td>
+			  		<td>${Lista.getNomeCorsista()} ${Lista.getCognome()}</td>
+			  		<td>${Lista.getNomeCorso()}</td>
+			  		<td>${Lista.getDataScad()}</td>
+			  		<#if Lista.getScaduto() == 1>
+		<td>SCADUTO</td>
+		<#else>
+		<td>NON SCADUTO</td>
+		</#if>
 			  		<td><a href="Modifica?id=${Lista.id}"><img class="icona" src="Template/img/modifica.png"></a></td>
 			  		<!-- Trigger/Open The Modal -->
 			  		<td><!-- <img id="myBtn" src="Template/img/elimina.png" class="icona modal"></img> -->

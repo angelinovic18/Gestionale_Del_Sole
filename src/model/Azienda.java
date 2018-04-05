@@ -20,6 +20,11 @@ public class Azienda {
 	private String auditc;
 	private String auditt;
 	private String note;
+	private String nomecorsista;
+	private String nomecorso;
+	private String datascad;
+	private int scaduto;
+	private String cognome;
 	
 	public Azienda(int id,String numero, String nome, String comune, String rappresentante, String sede_legale, String sede_operativa, String codice_fiscale, String iva, String email, String pec, String cellulare, String telefono, String ateco, String auditc, String auditt, String note){
 		this.id = id;
@@ -46,6 +51,19 @@ public class Azienda {
 		this.numero = numero;
 		this.nome = nome;
 		this.comune = comune;
+		
+	}
+	
+	public Azienda(int id,String numero, String nome, String comune,String nomecorsista,String cognome,String nomecorso,String datascad, int scaduto){
+		this.id = id;
+		this.numero = numero;
+		this.nome = nome;
+		this.comune = comune;
+		this.nomecorsista=nomecorsista;
+		this.nomecorso=nomecorso;
+		this.datascad=datascad;
+		this.scaduto=scaduto;
+		this.cognome=cognome;
 		
 	}
 	
@@ -100,6 +118,14 @@ public class Azienda {
 		this.comune = comune;
 	}
 	
+	public String getCognome(){
+		return cognome;
+	}
+	
+	public void setCognome(String cognome){
+		this.cognome = cognome;
+	}
+	
 	public String getRappresentante(){
 		return rappresentante;
 	}
@@ -139,6 +165,40 @@ public class Azienda {
 	public void setIva(String iva){
 		this.iva = iva;
 	}
+	
+	public String getNomeCorsista(){
+		return nomecorsista;
+	}
+	
+	public void setNomeCorsista(String nomecorsista){
+		this.nomecorsista = nomecorsista;
+	}
+	
+	public void setNomeCorso(String nomecorso){
+		this.nomecorso = nomecorso;
+	}
+	
+	public String getNomeCorso(){
+		return nomecorso;
+	}
+	
+	public void setDataScad(String datascad){
+		this.datascad = datascad;
+	}
+	
+	public String getDataScad(){
+		return datascad;
+	}
+	
+	public void setScaduto(int scaduto){
+		this.scaduto = scaduto;
+	}
+	
+	public int getScaduto(){
+		return scaduto;
+	}
+	
+	
 	
 	public String getEmail(){
 		return email;

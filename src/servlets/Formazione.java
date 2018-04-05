@@ -114,7 +114,16 @@ public class Formazione extends HttpServlet {
 					int giorno=Integer.parseInt(data.substring(8,10));
 					System.out.println(giorno + "giornooooo");
 					anno=anno+durata;
-					datascad=anno+"-"+mese+"-"+giorno;
+					if(mese<10 && giorno>9){
+						datascad=anno+"-0"+mese+"-"+giorno;
+						}
+						if(giorno<10 && mese>9){
+							datascad=anno+"-"+mese+"-0"+giorno;
+							}
+						if(giorno<10 && mese<10){
+							datascad=anno+"-0"+mese+"-0"+giorno;
+							}
+				
 					System.out.println(datascad +" datascadenzaaaaa");
 					Database.insertRecord("corsista", agg2);
 					Database.selectRecord("corsista");
@@ -144,6 +153,9 @@ public class Formazione extends HttpServlet {
 	}
 			if(scelta.equals("elimina")){
 				int idcorso=Integer.parseInt(request.getParameter("idcorso"));
+				if(idcorso!=0){
+					
+				
 				try {
 					Database.connect();
 					Database.deleteRecord("acc","idcorso=" + idcorso);
@@ -153,7 +165,7 @@ public class Formazione extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			}
+			}}
 			
 			if(scelta.equals("eliminasi")){
 				int idcorsista=Integer.parseInt(request.getParameter("id"));
