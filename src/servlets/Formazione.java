@@ -173,9 +173,10 @@ public class Formazione extends HttpServlet {
 			
 			if(scelta.equals("eliminasi")){
 				int idcorsista=Integer.parseInt(request.getParameter("id"));
+				int idcorso=Integer.parseInt(request.getParameter("idcorso"));
 				try {
 					Database.connect();
-					Database.deleteRecord("acc","id_corsista=" + idcorsista);
+					Database.deleteRecord("acc","id_corsista=" + idcorsista + " AND idcorso=" +idcorso);
 					Database.deleteRecord("corsista","id=" + idcorsista);
 					Database.close();
 				} catch (Exception e) {

@@ -25,6 +25,9 @@ public class Azienda {
 	private String datascad;
 	private int scaduto;
 	private String cognome;
+	private int idcorsista;
+	private int idcorso;
+	
 	
 	public Azienda(int id,String numero, String nome, String comune, String rappresentante, String sede_legale, String sede_operativa, String codice_fiscale, String iva, String email, String pec, String cellulare, String telefono, String ateco, String auditc, String auditt, String note){
 		this.id = id;
@@ -44,6 +47,7 @@ public class Azienda {
 		this.auditc = auditc;
 		this.auditt = auditt;
 		this.note = note;
+		
 	}
 	
 	public Azienda(int id,String numero, String nome, String comune){
@@ -54,7 +58,7 @@ public class Azienda {
 		
 	}
 	
-	public Azienda(int id,String numero, String nome, String comune,String nomecorsista,String cognome,String nomecorso,String datascad, int scaduto){
+	public Azienda(int id,int idcorsista,int idcorso,String numero, String nome, String comune,String nomecorsista,String cognome,String nomecorso,String datascad, int scaduto){
 		this.id = id;
 		this.numero = numero;
 		this.nome = nome;
@@ -64,6 +68,8 @@ public class Azienda {
 		this.datascad=datascad;
 		this.scaduto=scaduto;
 		this.cognome=cognome;
+		this.idcorsista=idcorsista;
+		this.idcorso=idcorso;
 		
 	}
 	
@@ -92,6 +98,22 @@ public class Azienda {
 	
 	public void setId(int id){
 		this.id = id;
+	}
+	
+	public int getIdCorsista(){
+		return idcorsista;
+	}
+	
+	public void setIdCorsista(int idcorsista){
+		this.idcorsista = idcorsista;
+	}
+	
+	public int getIdCorso(){
+		return idcorso;
+	}
+	
+	public void setIdCorso(int idcorso){
+		this.idcorso = idcorso;
 	}
 	
 	public String getNumero(){
