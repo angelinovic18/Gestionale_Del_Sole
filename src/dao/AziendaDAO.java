@@ -3,7 +3,9 @@ package dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import model.Azienda;
 import util.DataUtil;
@@ -52,7 +54,7 @@ public class AziendaDAO implements AziendaDAO_interface {
 
 				System.out.println(auditt + " dataaaaaaa");
 		
-				if(auditc!="" && auditt!="") {
+				if(auditc!="") {
 				
 
 				Azienda z=new Azienda(id,numero, nome,comune,auditc,auditt);
@@ -84,7 +86,7 @@ public class AziendaDAO implements AziendaDAO_interface {
 
 				System.out.println(auditt + " dataaaaaaa");
 		
-				if(auditc!="" && auditt!="") {
+				if(auditt!="") {
 				
 
 				Azienda x=new Azienda(id,numero, nome,comune,auditc,auditt);
@@ -150,6 +152,30 @@ public class AziendaDAO implements AziendaDAO_interface {
 			}
 			Database.deleteRecord("corsista", "corsista.idazienda=" + id);
 			Database.deleteRecord("azienda", "id = " + id);
+			Database.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+public static void azzeradata(int id,int serve){
+		Map<String,Object> f=new HashMap<String,Object>();
+		try {
+			String a="";
+			if(serve==1){
+				f.put("auditt", a);	
+			} else {
+				f.put("auditc", a);
+			}
+			
+			Database.connect();
+Database.updateRecord("azienda",f,"azienda.id="+id);
 			Database.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

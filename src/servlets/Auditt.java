@@ -60,7 +60,7 @@ String premuto=request.getParameter("tasto");
 		if(premuto.equals("si")){
 			int id=Integer.parseInt(request.getParameter("id"));
 			System.out.println(id + "idddddddddddd");
-			AziendaDAO.cancella(id);
+			AziendaDAO.azzeradata(id,1);
 			
 			}
 		

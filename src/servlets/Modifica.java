@@ -128,10 +128,18 @@ HttpSession s = SecurityLayer.checkSession(request);
 		}
 		
 		if(auditc!=""){
+			String gg=auditc.substring(8,10);
+			String mm=auditc.substring(5,7);
+			String aa=auditc.substring(0,4);
+			auditc=gg + "/" +mm+ "/" +aa;
 			agg.put("auditc", auditc);
 		}
 		
 		if(auditt!=""){
+			String gg=auditt.substring(8,10);
+			String mm=auditt.substring(5,7);
+			String aa=auditt.substring(0,4);
+			auditt=gg + "/" +mm+ "/" +aa;
 			agg.put("auditt", auditt);
 		}
 		
