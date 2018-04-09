@@ -42,6 +42,7 @@ public class Scadenzario extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession s = SecurityLayer.checkSession(request);
+		if(s!=null){
 		int scaduto=0;
 		List<Azienda> g=new ArrayList<Azienda>();
 		List<Corso> as=new ArrayList<Corso>();
@@ -107,14 +108,17 @@ public class Scadenzario extends HttpServlet {
 		data.put("lista", g);
 		data.put("listac", as);
 		FreeMarker.process("scadenzario.html", data, response, getServletContext());
+	}else{
+		response.sendRedirect("Log");
 	}
-
+	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession s = SecurityLayer.checkSession(request);
+		if(s!=null){
 		String premuto=request.getParameter("tasto");
 		Map<String,Object> n=new HashMap<String,Object>();
 		if(premuto.equals("aggiorna")){
@@ -239,6 +243,7 @@ public class Scadenzario extends HttpServlet {
 					}
 					data.put("lista", q);
 					data.put("listac", as);
+					data.put("lista", 1);
 					FreeMarker.process("scadenzario.html", data, response, getServletContext());
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -313,6 +318,7 @@ public class Scadenzario extends HttpServlet {
 						}
 						data.put("lista", qt);
 						data.put("listac", ast);
+						data.put("titolo", 1);
 						FreeMarker.process("scadenzario.html", data, response, getServletContext());
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
@@ -380,6 +386,7 @@ public class Scadenzario extends HttpServlet {
 					}
 					data.put("lista", q);
 					data.put("listac", as);
+					data.put("titolo", 1);
 					FreeMarker.process("scadenzario.html", data, response, getServletContext());
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -397,6 +404,9 @@ public class Scadenzario extends HttpServlet {
 		
 		
 		
+	}else{
+		response.sendRedirect("Log");
+	}
 	}
 
 }

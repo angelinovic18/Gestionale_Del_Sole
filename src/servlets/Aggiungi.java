@@ -36,7 +36,12 @@ public class Aggiungi extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession s = SecurityLayer.checkSession(request);
+		if(s!=null){
 		FreeMarker.process("aggiungi_cliente.html", data, response, getServletContext());
+		} else {
+			response.sendRedirect("Log");
+		}
 	}
 
 	/**
@@ -45,6 +50,7 @@ public class Aggiungi extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession s = SecurityLayer.checkSession(request);
+		if(s!=null){
 		String scelta=request.getParameter("inserisci");
 		
 		if(scelta.equals("yes")){
@@ -101,6 +107,11 @@ auditt=giornot+"/"+meset+"/"+annot;
 		}
 		}
 		response.sendRedirect("Home");
+	}else{
+		response.sendRedirect("Log");
+	}
+	
+		
 	}
 
 }

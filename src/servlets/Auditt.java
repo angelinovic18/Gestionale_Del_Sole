@@ -42,10 +42,14 @@ public class Auditt extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession s = SecurityLayer.checkSession(request);
+		if(s!=null){
 		data.clear();
 		data.put("lista2", AziendaDAO.lista2());
 		
 		FreeMarker.process("auditt.html", data, response, getServletContext());
+		}else{
+			response.sendRedirect("Log");
+		}
 	}
 
 	/**
@@ -53,6 +57,8 @@ public class Auditt extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession s = SecurityLayer.checkSession(request);
+		if(s!=null){
 String premuto=request.getParameter("tasto");
 		
 		
@@ -153,6 +159,8 @@ String premuto=request.getParameter("tasto");
 			if(nomeaz!=""){
 				try {
 					data.put("lista2", AziendaDAO.cercaaz(nomeaz));
+					data.put("titolo", 1);
+					data.put("mess", nomeaz);
 					FreeMarker.process("auditt.html", data, response, getServletContext());
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -163,6 +171,8 @@ String premuto=request.getParameter("tasto");
 			if(mese!="00"){
 				try {
 					data.put("lista2", AziendaDAO.cercam1(mese));
+					data.put("titolo", 1);
+					data.put("mess", mese);
 					FreeMarker.process("auditt.html", data, response, getServletContext());
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -171,6 +181,8 @@ String premuto=request.getParameter("tasto");
 			}
 		}
 		doGet(request, response);
+	}else{
+		response.sendRedirect("Log");
 	}
-
+	}
 }

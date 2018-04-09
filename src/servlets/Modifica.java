@@ -39,10 +39,14 @@ public class Modifica extends HttpServlet {
 		// TODO Auto-generated method stub
 		int id=0;
 HttpSession s = SecurityLayer.checkSession(request);
+if(s!=null){
 		
 		id=Integer.parseInt(request.getParameter("id"));
 		data.put("azienda", AziendaDAO.specifica(id));
 		FreeMarker.process("modifica.html", data, response, getServletContext());
+}else{
+	response.sendRedirect("Log");
+}
 	}
 
 	/**
@@ -51,6 +55,7 @@ HttpSession s = SecurityLayer.checkSession(request);
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession s = SecurityLayer.checkSession(request);
+		if(s!=null){
 		String decisione=request.getParameter("decisione");
 		if(decisione.equals("salva")){
 		int id=Integer.parseInt(request.getParameter("id"));
@@ -160,6 +165,9 @@ HttpSession s = SecurityLayer.checkSession(request);
 	} else{
 		response.sendRedirect("Home");
 	}
+		}else{
+			response.sendRedirect("Log");
+		}
 		}
 
 }

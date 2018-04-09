@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import util.FreeMarker;
 import util.SecurityLayer;
@@ -33,6 +34,8 @@ public class Logout extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession s = SecurityLayer.checkSession(request);
+		if(s!=null){
 		try {
             SecurityLayer.disposeSession(request);
             FreeMarker.process("login.html", data , response, getServletContext());
@@ -41,6 +44,9 @@ public class Logout extends HttpServlet {
             request.setAttribute("exception", ex);
             System.out.println("NON VA");
         }
+		}else{
+			response.sendRedirect("Log");
+		}
 	}
 
 	/**
@@ -48,6 +54,7 @@ public class Logout extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		 doGet(request,response);
 	}
 

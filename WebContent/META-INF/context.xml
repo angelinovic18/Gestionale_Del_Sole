@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context antiJARLocking="true" path="/Gestionale_Del_Sole">
     <Resource 
-        name="Gestionale_Del_Sole" 
+        name="jdbc/demo64"
+        auth="Container" 
         type="javax.sql.DataSource" 
         driverClassName="com.mysql.jdbc.Driver" 
-        url="jdbc:mysql://localhost:3306/gestionale" 
-        username="root"
-        password="" 
+        url="jdbc:mysql://95.110.171.18:3306/demo64" 
+        username="demo64"
+        password="demo8810" 
         maxActive="30" 
         maxIdle="5" 
         maxWait="10000" 

@@ -45,6 +45,7 @@ public class Formazione extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession s = SecurityLayer.checkSession(request);
+		if(s!=null){
 		int ida=(int) s.getAttribute("id");
 		System.out.println(ida + "id azienda");
 		
@@ -58,6 +59,9 @@ public class Formazione extends HttpServlet {
 		}
 		
 		FreeMarker.process("formazione.html", data, response, getServletContext());
+		}else{
+			response.sendRedirect("Log");
+		}
 	}
 
 	/**
@@ -66,6 +70,7 @@ public class Formazione extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession s = SecurityLayer.checkSession(request);
+		if(s!=null){
 		String scelta=request.getParameter("scelta");
 		System.out.println(scelta + " Cosa scegli?");
 		Map<String,Object> agg=new HashMap<String,Object>();
@@ -185,7 +190,9 @@ public class Formazione extends HttpServlet {
 				}
 			}
 			response.sendRedirect("Formazione");
+}else{
+	response.sendRedirect("Log");
 }
-		
+	}		
 }
 	

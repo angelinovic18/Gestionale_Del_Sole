@@ -42,12 +42,16 @@ public class Home extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession s = SecurityLayer.checkSession(request);
+		if(s!=null){
 		data.clear();
 		data.put("lista", AziendaDAO.lista());
 
   		
   		
   	  FreeMarker.process("home.html", data, response, getServletContext());
+		}else{
+			response.sendRedirect("Log");
+		}
 	}
 
 	/**
@@ -55,7 +59,8 @@ public class Home extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		HttpSession s = SecurityLayer.checkSession(request);
+		if(s!=null){
 		String premuto=request.getParameter("tasto");
 		
 		
@@ -86,6 +91,8 @@ public class Home extends HttpServlet {
 		
 		
 		
+	}else{
+		response.sendRedirect("Log");
 	}
-
+	}
 }

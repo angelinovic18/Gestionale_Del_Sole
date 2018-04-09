@@ -42,10 +42,14 @@ public class Audit extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession s = SecurityLayer.checkSession(request);
+		if(s!=null){
 		data.clear();
 		data.put("lista2", AziendaDAO.lista2());
 		
 		FreeMarker.process("audit.html", data, response, getServletContext());
+		} else{
+			response.sendRedirect("Log");
+		}
 	}
 
 	/**
@@ -53,6 +57,8 @@ public class Audit extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession s = SecurityLayer.checkSession(request);
+		if(s!=null){
 String premuto=request.getParameter("tasto");
 		
 		
@@ -168,6 +174,8 @@ String premuto=request.getParameter("tasto");
 			}
 		}
 		doGet(request, response);
+	}else{
+		response.sendRedirect("Log");
 	}
-
+	}
 }
