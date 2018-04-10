@@ -7,7 +7,7 @@
         driverClassName="com.mysql.jdbc.Driver" 
         url="jdbc:mysql://95.110.171.18:3306/demo64" 
         username="demo64"
-        password="demo8810" 
+        password="demo5760" 
         maxActive="30" 
         maxIdle="5" 
         maxWait="10000" 

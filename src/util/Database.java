@@ -16,7 +16,7 @@ public class Database {
 	protected static String DRIVER = "com.mysql.jdbc.Driver";
 	protected static String url = "jdbc:mysql://95.110.171.18/demo64";
 	protected static String user = "demo64";
-	protected static String psw = "demo8810";
+	protected static String psw = "demo5760";
 
 
 	private static Connection db;
