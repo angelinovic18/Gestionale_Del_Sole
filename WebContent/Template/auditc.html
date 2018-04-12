@@ -78,12 +78,15 @@
 			  		</td>
 
 			  		<td>
-			  		<button type="button"  data-toggle="modal" data-target="#exampleModal-${Lista.id}">
+			  		<button id="${Lista.id}" type="button" onclick="myFunction(${Lista.id})">
 			  		<img src="Template/img/elimina.png" class="icona">
 			  		</button>
+			  		<form method="POST" action="Auditc" class="${Lista.id}">
+			  		</form>
 			  		
 									  	
 <!-- Modal -->
+<!-- 
 <form method="POST" action="Auditc">
 <div class="modal fade" id="exampleModal-${Lista.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -108,7 +111,7 @@
 </div>
 </form>
 					
-			  		</td>
+			  		</td>-->
 			  		</tr>
 			  		</#list>
 			  		</#if>

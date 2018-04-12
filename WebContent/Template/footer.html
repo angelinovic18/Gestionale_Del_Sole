@@ -12,7 +12,7 @@
 	</div>
 </div>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
@@ -21,6 +21,7 @@
 <script src="Template/bootstrap/js/bootstrap.js"></script>
 	<!-- <script src="Template/bootstrap/js/bootstrap.min.js"></script>-->
 	<script src="Template/bootstrap/js/npm.js"></script>
+	
 	
   <script>
         var table = '#mytable';
@@ -60,5 +61,25 @@
       
     </script>	
 
+<script>
+function myFunction(c){
+	var r=c;
+	var x=document.getElementById(r);
+	x.remove();
+	$("." + r).append(("Eliminare? <button type='submit' name='tasto' value='si' class='btn btn-secondary'>SI</button> <input type='hidden' name='id' value='" + r + "' > <a href='javascript:history.go(0);'><button  type='button' class='btn btn-primary'>NO</button></a>"));
+}
+
+function myFunctionScad(c,d){
+	var r=c;
+	var l=d
+	var x=document.getElementById(r);
+	x.remove();
+	$("." + r).append(("Eliminare? <button type='submit' name='tasto' value='elimina' class='btn btn-secondary'>SI</button> <input type='hidden' name='idcorso' value='" + l + "' ><input type='hidden' name='idcorsista' value='" + r + "' > <a href='javascript:history.go(0);'><button  type='button' class='btn btn-primary'>NO</button></a>"));
+}
+
+
+</script>
+
+</script>
 </body>
 </html>
