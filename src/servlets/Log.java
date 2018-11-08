@@ -83,7 +83,7 @@ public class Log extends HttpServlet {
 
 	      		
 	      		
-	        	  FreeMarker.process("home.html", data, response, getServletContext());}
+	        	  FreeMarker.process("area.html", data, response, getServletContext());}
 	          }
 		}
 		

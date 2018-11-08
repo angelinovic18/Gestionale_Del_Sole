@@ -20,6 +20,14 @@
     <servlet-name>Home</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>Area</servlet-name>
+    <servlet-class>Servlets.Area</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Area</servlet-name>
+    <url-pattern>/area</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>Modifica</servlet-name>
     <servlet-class>Servlets.Modifica</servlet-class>
